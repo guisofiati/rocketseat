@@ -1,0 +1,52 @@
+<!--
+
+    Criar uma tabela com 2 lojas onde:
+
+    Mostra quantos produtos foram produzidos, vendidos 
+    e agrupados por nome dos produtos
+
+-->
+
+<table>
+
+    <caption>Tabela de produtos produzidos e produtos vendidos</caption>
+
+    <colgroup>
+        <col style="background-color: green;">
+        <col span="2" style="background-color: red;">
+        <col span="2" style="background-color: blue;">
+    </colgroup>
+
+    <thead>
+        <tr>
+            <th rowspan="2"></th>
+            <th colspan="2" scope="colgroup">Loja 1</th>
+            <th colspan="2" scope="colgroup">Loja 2</th>
+        </tr>
+
+        <tr>
+            <th scope="col">Produzidos</th>
+            <th scope="col">Vendidos</th>
+            <th scope="col">Produzidos</th>
+            <th scope="col">Vendidos</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <th scope="row">Aço</th>
+            <td>30</td>
+            <td>20</td>
+            <td>80</td>
+            <td>10</td>
+        </tr>
+
+        <tr>
+            <th scope="row">Metal</th>
+            <td>90</td>
+            <td>85</td>
+            <td>50</td>
+            <td>30</td>
+        </tr>
+    </tbody>
+</table>

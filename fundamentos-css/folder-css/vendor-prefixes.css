@@ -1,0 +1,11 @@
+/*
+    Permite que os browsers adicione features a fim de colocar uma novidade de CSS 
+    https://caniuse.com -> ver as compatibilidades
+*/
+
+p {
+    -webkit-background-clip: text; /*Chrome, Safari, iOS, Android*/
+    -moz-background-clip: text;    /*Mozila (Firefox)*/  
+    -ms-background-clip: text;     /*Internet Explorer*/
+    -moz-background-clip: text;    /*Opera*/
+}

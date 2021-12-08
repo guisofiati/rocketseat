@@ -1,0 +1,10 @@
+/*
+    Importante CSS com @import para fonts google
+*/
+
+@import 'https://fonts.googleapis.com/css2?family=Corinthia&display=swap';
+
+.custom {
+    color: gray;
+    font-family: 'Corinthia', cursive;
+}

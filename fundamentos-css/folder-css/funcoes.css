@@ -1,0 +1,8 @@
+/*
+    Nome seguido de () com os argumentos
+*/
+
+* {
+    color: rgb(120, 0, 4);
+    width: calc(100% - 10);
+}

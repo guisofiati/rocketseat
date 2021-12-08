@@ -1,0 +1,20 @@
+h1 {
+    border: 1px solid #808080;
+    margin: 100px;
+    padding: 50px;
+}
+
+.subtitulo1 {
+    color: #f07f7f;
+    font-size: 25px;
+}
+
+.subtitulo2 {
+    color: #a3cfec;
+    font-size: 20px;
+    margin: 15px;
+}
+
+#botaoAcessar {
+    color: red;
+}

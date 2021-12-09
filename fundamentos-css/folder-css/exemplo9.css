@@ -1,0 +1,8 @@
+* {
+    margin: 0;
+}
+
+div, section {
+    border: 1px solid blue;
+    padding: 10px 50px 20px;
+}

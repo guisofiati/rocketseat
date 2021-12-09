@@ -19,4 +19,8 @@ main {
     background-size: contain; /*cover = cobre toda a caixa. px, em...*/
     background-origin: content-box;
     background-clip: content-box;
+
+    background: linear-gradient(red, yellow);
+    background: linear-gradient(255deg, red, yellow);
+    background: radial-gradient(rgba(255, 255, 255, 0), rgba(255, 0, 0, 0.2));
 }

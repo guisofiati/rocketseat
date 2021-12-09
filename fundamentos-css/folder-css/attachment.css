@@ -13,4 +13,7 @@ main {
     background-origin: content-box;
     background-clip: content-box;
     background-attachment: fixed; /*Padrão é scroll*/
+
+    background: rgb(55, 100, 50) url(https://yt3.ggpht.com/ytc/AKedOLQkXnYChXAHOeBQLzwhk1_BHYgUXs6ITQOakoeNoQ=s900-c-k-c0x00ffffff-no-rj)
+    no-repeat right top / 50px border-box content-box fixed;
 }

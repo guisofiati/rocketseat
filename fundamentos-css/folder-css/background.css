@@ -9,6 +9,9 @@ header {
 }
 
 main {
-    height: 50px;
-    border: 10px dotted blue;
+    height: 100vh;
+    border: 10px dotted orange;
+    background-color: #000055;
+    background-image: url(https://yt3.ggpht.com/ytc/AKedOLQkXnYChXAHOeBQLzwhk1_BHYgUXs6ITQOakoeNoQ=s900-c-k-c0x00ffffff-no-rj);
+    background-repeat: no-repeat;
 }

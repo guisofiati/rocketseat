@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+}
+
+main {
+    
+    height: 400px;
+    background: #000000;
+    border: 1px solid black;
+    background-image: url(https://i.pinimg.com/736x/51/cd/3a/51cd3aea2b0852fd4f5e98ac51eb074b.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-origin: border-box;
+    background-origin: border-box;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.anime {
+    border-radius: 50%;
+    border: 5px solid black;
+}

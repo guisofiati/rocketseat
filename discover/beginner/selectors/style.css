@@ -1,0 +1,29 @@
+/* Global selector */
+* {
+    margin: 0;
+}
+
+/* id selector */
+#container {
+    width: 300px;
+}
+
+/* class selector */
+.m-4 {
+    margin: 40px;
+}
+
+.other-title {
+    border: 1px solid black;
+    margin: 200px;
+    padding: 150px;
+    
+}
+
+/* Element/Type selector */
+h1, h2 {
+    color: green;
+    font-size: 40px;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    background: gray;
+}

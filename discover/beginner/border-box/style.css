@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    border: 1px solid red;
+    margin: 10%;
+    /* somou 100px do content + 20px do padding totalizando 140px a box
+        estava sendo somando pois por padrao é uma content-box, esta contando
+        apartir do content
+    */
+    padding: 0 20px;
+}
+
+/* solução, definir o box-sizing para border-box para estabelecer o real valor da box */
+.box2 {
+    box-sizing: border-box;
+    width: 100px;
+    height: 100px;
+    border: 1px solid red;
+    margin: 10%;
+    padding: 0 20px;
+}
+
+.margin-elemento1, .margin-elemento2 {
+    border: 1px solid red; /* -> 104 px a caixa sem o box-sizing */ 
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+}
+
+.margin-elemento1 {
+    /*margin: 10px; -> todos os lados */
+    /*margin: 10px 5px; -> top e bottom, right e left*/
+    /* margin: 10px 16px 0; -> top, right e left, bottom*/
+    /* margin: 2px 5px 2px 10px; -> top, right, bottom, left*/
+    margin: 5px 10px;
+}
+
+.margin-elemento2 {
+    margin-top: 5px; /* margin colapse, nao vai somar com o elemento de cima */
+    margin-bottom: 20px;
+}
+
+.margin-elemento3, .margin-elemento4 {
+    border: 1px solid blue;
+    display: inline;
+    width: 100px;
+    height: 100px;
+    margin: 12px; /* nao funciona em display inline os tops e bottoms e n respeita widht e height*/
+}
+
+.padding-elemento1, .padding-elemento2, .padding-elemento3, .padding-elemento4 {
+    box-sizing: border-box;
+    border: 1px solid red;
+    margin: 10px;
+    padding: 0 45px;
+    width: 100px;
+    height: 100px;
+}

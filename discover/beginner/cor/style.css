@@ -1,0 +1,59 @@
+* {
+    font-size: 16px;
+}
+
+/* 
+    HEX
+    values (0...9, até A...F) RED, GREEN, BLUE
+    onde: letras = mais claro, numeros = mais escuro
+    (mais de 3 args = transparencia)
+*/
+
+.e1 {
+    color: #ff0000;
+}
+
+.e2 {
+    color: #000099;
+}
+
+.e3 {
+    color: #0000ff88;
+}
+
+/* 
+    RGB
+    RED, GREEN, BLUE (0 - 255)
+    onde 0 mais preto e 255 mais escuro da cor
+    (mais de 3 args = transparencia)
+*/
+
+.e4 {
+    color: rgb(255, 0, 0);
+}
+
+.e5 {
+    color: rgb(0, 0, 55, 0.6);
+}
+
+.e6 {
+    color: rgb(255, 180, 0); 
+}
+
+/* 
+    HSL
+    (rgb mas em formato de 'disco')
+    trabalha com 3 args (graus, saturação e luz)
+*/
+
+.e7 {
+    color: hsl(180, 100%, 50%);
+}
+
+.e8 {
+    color: hsl(270, 50%, 60%);
+}
+
+.e9 {
+    color:hsl(60, 80%, 50%, 0.4);
+}

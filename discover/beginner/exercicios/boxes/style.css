@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 5px;
+    height: 500px;
+    width: 600px;
+    border: 3px solid black;
+}
+
+.content1, .content2 {
+    height: 50%;
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.content1 {   
+    border: 2px dotted red;
+    background: url('img/nebulosa.jpg') no-repeat center / cover content-box
+}
+
+.content2 {
+    border: 2px dotted blue;
+    background: url('img/via-lactea.jpg') repeat-x center / contain padding-box
+}

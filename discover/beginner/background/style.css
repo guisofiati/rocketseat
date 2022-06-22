@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+}
+
+header {
+    height: 300px;
+    width: 50vw;
+    border: 5px dotted red;
+    padding: 20px;
+    background-color: hsl(180, 60%, 60%);
+    background-image: url(img/img.jpg); /* Por padrao fica se repetindo */
+    background-repeat: no-repeat; /* repeat-x repeat-y */
+    background-position: center; /* bottom left -> ficaria no canto inferior esquerdo */
+    background-size: contain;/* cover: preenche toda a area. contain: preenche pelo tamanho vertical */
+    background-origin: content-box; /* border: começa pela borda. content: depois da borda. padding: pelo padding */
+    background-clip: content-box; /* Casa com o origin, e ambos ficam na altura da borda, padding ou content */
+
+    /* Shorthand. 
+    obs: no size deve-se colocar o '/' e para o origin e clip se nao passar 2 valores, ele atribui para ambos
+    alem disso, o primeiro sempre sera o origin
+    */
+    background: hsl(180, 60%, 60%)  url(img/img.jpg) no-repeat center / contain content-box;
+}
+
+.main-class {
+    color: black;
+    background-image: url(img/img.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-origin: content-box; 
+    background-clip: content-box; 
+    background-attachment: fixed; /* fixa a imagem de fundo e nao anda com o scroll */
+    background-color: hsl(180, 60%, 60%);
+}
+
+.main-index {
+    background: linear-gradient(180deg, red, blue);
+}
+
+.sub-main-index {
+    background: radial-gradient(rgb(255, 0, 0), rgb(200, 100, 50));
+}

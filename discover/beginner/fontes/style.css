@@ -1,0 +1,74 @@
+/*
+ fallback: se n tiver cambria, ele coloca uma fonte sans-serif.
+ nem todas as fontes tem o peso e estilo disponivel, para isso, baixar a fonte e os pesos.
+*/
+
+.f1 {
+    font-family: Cambria, sans-serif;
+}
+
+.f2 {
+    font-family: sans-serif;
+}
+
+.f3 {
+    font-family: 'Roboto Mono', monospace, sans-serif;
+}
+
+.f4 {
+    font-family: 'Roboto Mono', monospace, sans-serif;
+    font-weight: 100;
+}
+.f5 {
+    font-family: 'Roboto Mono', monospace, sans-serif;
+    font-weight: 400;
+}
+
+.f6 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+.f7 {
+    letter-spacing: 0.5em;
+}
+
+.f8 {
+    word-spacing: 0.7em;
+}
+
+.f9 {
+    line-height: 60px;
+}
+
+.f9 {
+    text-transform: capitalize;
+}
+
+.f10 {
+    text-transform: uppercase;
+}
+
+.f11 {
+    text-decoration: underline;
+}
+
+.f12 {
+    text-decoration: line-through overline underline;
+    text-align: end;
+}
+
+.f13 {
+    text-decoration: underline wavy blue;
+    text-align: center;
+}
+
+/* eixo x, eixo y e blure*/
+.f14 {
+    text-shadow: 1px 2px 4px red;
+}
+
+.f15 {
+    font: italic normal bold 2.1em/2 sans-serif;
+}

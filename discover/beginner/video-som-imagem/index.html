@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video e som</title>
+  </head>
+  <body>
+    <div>
+      <video controls muted loop>
+        <source src="./assets/video" type="video/mp4" />
+      </video>
+    </div>
+    <div>
+      <audio controls autoplay>
+        <source src="./assets/audio" type="audio/mp3" />
+      </audio>
+    </div>
+    <div>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/NZLbTuBDhJg"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        title="Titulo para o video"
+      >
+      </iframe>
+    </div>
+    <div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19967.574923194275!2d30.204375923444314!3d51.
+          275297144235125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.
+          1!3m3!1m2!1s0x472a8f00e898abcf%3A0x14bcceabdbfd5d2c!2sChernobil%2C%20Oblast%20de%20Kiev%2C%20Ucr%C3%A2nia!5e0!3m2!1spt-BR!2sbr!4v1655983827261!5m2!1spt-BR!2sbr"
+        width="400"
+        height="300"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+    <div>
+      <img
+        src="https://source.unsplash.com/random"
+        alt="Imagem random do site unsplash"
+        title="Uma foto random"
+        width="200px"
+        height="200px"
+      />
+    </div>
+    <!-- click na foto e redireciona -->
+    <div>
+      <a href="https://rocketseat.com.br" target="_blank">
+        <img
+          src="https://rocketseat.com.br/icons/icon-48x48.png"
+          alt="Logo do site da Rocketseat"
+          title="Foguete simbolo da Rocketseat"
+          height="50"
+          width="200"
+        />
+      </a>
+    </div>
+    <!-- semantico -->
+    <div>
+      <a href="https://google.com">
+        <figure>
+          <img
+            src="https://source.unsplash.com/random"
+            alt="Imagem random do site unsplash"
+            title="Uma foto random"
+            width="200px"
+            height="200px"
+          />
+          <figcaption>Titulo para a imagem</figcaption>
+        </figure>
+      </a>
+    </div>
+    <div>
+      <svg width="300" height="200">
+        <rect width="100%" height="100%" stroke="blue" stoke-width="4" fill="gray" />
+      </svg>
+    </div>
+    <div>
+      <img src="./assets/ball.svg" alt="Imagem de uma bola em svg">
+    </div>
+  </body>
+</html>

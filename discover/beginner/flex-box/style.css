@@ -1,0 +1,32 @@
+/* para poder deixar as caixas no meio da tela */
+body {
+    margin: 0; /* sem margem 0 ia ficar um scroll na tela */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    width: 100vw;
+    display: flex;
+    /* flex-direction: column; -> muda para coluna */ 
+    justify-content: center; /* space-between: separa os elementos com espaço */
+    
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+}
+
+.vermelho {
+    background-color: red;
+}
+
+.azul {
+    background-color: blue;
+}
+
+.verde {
+    background-color: green;
+}

@@ -1,0 +1,43 @@
+.box {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 8px;
+}
+
+/*
+    a caixa vermelha é a ultima caixa
+    se quiser ser a primeira: z-index: 1
+*/
+.box1 {
+    background-color: red;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    z-index: 1;
+}
+
+.box2 {
+    background-color: blue;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+/*
+    a caixa amarela é a terceira caixa
+    se quiser ser a segunda: z-index: 2
+*/
+.box3 {
+    background-color: yellow;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 2;
+}
+
+.box4 {
+    background-color: green;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}

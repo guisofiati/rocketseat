@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+  </head>
+  <body>
+    <!--
+         sem o name no input ele nao joga pra url
+        sem o id no input, ao clickar no label ele n joga o cursor de input para o campo input   
+     -->
+    <fieldset>
+      <legend>Contato</legend>
+      <form action="" method="">
+        <label>
+          Nome:
+          <input type="text" name="nome" />
+        </label>
+        <br />
+        <label for="form-tel">Tel: </label>
+        <input type="tel" name="telefone" id="form-tel" />
+        <br />
+        <button type="submit">Enviar</button>
+      </form>
+    </fieldset>
+
+    <datalist id="estados-list">
+      <option>SP</option>
+      <option>RJ</option>
+      <option>ES</option>
+      <option>MG</option>
+      <option>RS</option>
+      <option>SC</option>
+      <option>PR</option>
+    </datalist>
+
+    <fieldset>
+      <legend>Cadastro</legend>
+      <form action="">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" autocomplete="email" />
+        <br />
+        <label
+          >Cidade:
+          <input type="text" name="cidade" required />
+        </label>
+        <br />
+        <label for="estado-form">Estado:</label>
+        <input
+          type="text"
+          list="estados-list"
+          name="estado"
+          id="estado-form"
+          placeholder="Escolha um estado"
+        />
+        <br />
+        <label for="pwd-form">Senha: </label>
+        <input
+          type="password"
+          id="pwd-form"
+          minlength="4"
+          maxlength=""
+          placeholder="Digite a sua senha"
+          title="Digite uma senha entre 4 a 8 caracteres"
+          autocomplete="new-password"
+        />
+        <br />
+        <label for="pwd-form2">Senha2: </label>
+        <input
+          type="password"
+          id="pwd-form2"
+          pattern="[0-9a-zA-Z]{4,8}"
+          placeholder="Digite a sua senha"
+          title="Digite uma senha entre 4 a 8 caracteres"
+        />
+        <br />
+        <label for="pwd-form3">Senha3: </label>
+        <input
+          type="password"
+          id="pwd-form3"
+          pattern="[0-9]{4,8}"
+          placeholder="Digite a sua senha (somente numeros)"
+          title="Digite uma senha entre 4 a 8 numeros"
+          inputmode="numeric"
+          size="8"
+        />
+        <br />
+        <button type="reset">Limpar dados</button>
+        <button type="submit" autofocus>Enviar</button>
+        <button type="submit" disabled>Check</button>
+      </form>
+    </fieldset>
+    <fieldset>
+      <legend>Arquivos</legend>
+      <!-- padrao para aceitar os envios de docs do input tipo file-->
+      <form method="post" enctype="multipart/form-data">
+        <label for="arq-images-field">Imagens:</label>
+        <input
+          type="file"
+          id="arq-images-field"
+          accept="image/*"
+          multiple
+          title="Escolha um arquivo"
+        />
+        <br />
+        <label for="arq-pdf-field">Documento em PDF:</label>
+        <input
+          type="file"
+          id="arq-pdf-field"
+          accept=".pdf"
+          title="Escolha o arquivo no formato .PDF"
+        />
+        <br />
+        <label for="arq-word-field">Documento no Word:</label>
+        <input type="file" id="arq-word-field" accept=".docx" />
+      </form>
+    </fieldset>
+    <fieldset>
+      <legend>Suas preferencias</legend>
+      <form>
+        <label for="pref-notificacao">Receber notificação: </label>
+        <input
+          type="checkbox"
+          name="preferencia-notificacao"
+          id="pref-notificacao"
+          checked
+        />
+        <br />
+        <label for="pref-email">Receber emails com promoções: </label>
+        <input
+          type="checkbox"
+          name="preferencia-notificacao"
+          id="pref-notificacao"
+          checked
+        />
+      </form>
+    </fieldset>
+    <fieldset>
+      <legend>Aceita os termos?</legend>
+      <form>
+        <label for="yep">Sim</label>
+        <input type="radio" id="yep" name="terms" value="yes" checked />
+        <label for="nop">Não</label>
+        <input type="radio" id="nop" name="terms" value="no" />
+      </form>
+    </fieldset>
+    <fieldset>
+      <legend>Outros</legend>
+      <form>
+        <label for="message">Mensagem:</label>
+        <!-- wrap: cria um scroll horizontal, n quebra a linha -->
+        <textarea
+          name="message"
+          id="message"
+          cols="30"
+          rows="10"
+          minlength="100"
+          maxlength="1000"
+          wrap="off"
+        ></textarea>
+        <br />
+        <select name="carmodel" id="carselect">
+          <option value="">Selecione o modelo</option>
+          <option value="fiat">Uno</option>
+          <option value="A3">A3</option>
+          <option value="X6">X6</option>
+        </select>
+        <br />
+        <label for="categories">Selecione um objeto de uma categoria:</label>
+        <select name="categories" id="categories">
+          <option value="">Selecione</option>
+          <option value="" disabled></option>
+          <optgroup label="Pets"></optgroup>
+          <option value="alemao">Pastor alemao</option>
+          <option value="belga">Pastor belga</option>
+          <option value="pinscher">Pinscher</option>
+          <option value="salsicha">Salsicha</option>
+          <option value="" disabled></option>
+          <optgroup label="Frutas"></optgroup>
+          <option value="morango">Morango</option>
+          <option value="maca">Maça</option>
+          <option value="melancia" disabled>Melancia</option>
+        </select>
+        <br />
+        <datalist id="ossearch">
+          <option>Mac</option>
+          <option>Linux</option>
+          <option>Windows</option>
+        </datalist>
+        <input
+          type="search"
+          name="searchterm"
+          list="ossearch"
+          placeholder="Digite seu termo de busca"
+          size="29"
+          aria-label="Campo de busca: Digite seu termo de busca"
+        />
+        <br />
+        <label for="idade-form">Valor minimo:</label>
+        <input type="number" min="100" max="10000" step="100" />
+        <br />
+        <label for="meses-form">Meses:</label>
+        <input
+          type="range"
+          min="12"
+          max="360"
+          step="12"
+          value="12"
+        />
+        <br>
+        <label for="bd">Data de nascimento:</label>
+        <input type="date" id="bd">
+        <br>
+        <label for="dh">Data e hora atual:</label>
+        <input type="datetime-local" id="dh">
+        <br>
+        <label for="time">Agendamento:</label>
+        <input type="time" id="time">
+        <br>
+        <label for="month">Mes:</label>
+        <input type="month" id="month">
+        <br>
+        <label for="week">Semana:</label>
+        <input type="week" id="week">
+      </form>
+    </fieldset>
+  </body>
+</html>

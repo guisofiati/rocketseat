@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+}
+
+body {
+    padding: 10px;
+}
+
+fieldset {
+    border: none;
+}
+
+legend {
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration: underline;
+    text-shadow: 1px 2px 12px rgb(160, 72, 227);
+    position: relative;
+    left: 30%;
+}
+
+label {
+    line-height: 2rem;
+    font-family: 'Oswald', sans-serif;
+}
+
+button {
+    margin-top: 10px;
+}
+
+form {
+    display: grid;
+    justify-content: center;
+}

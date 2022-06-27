@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+fieldset {
+    border: none;
+}
+
+legend {
+   font-weight: bold;
+   font-size: 25px;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.container {
+    padding: 25px 30px;
+    max-width: 700px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    line-height: 30px;
+}

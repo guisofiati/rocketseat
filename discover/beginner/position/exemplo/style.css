@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100vh;
+}
+
+.box, .spa{
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+.box1 {
+    background-color: blue;
+    top: 0;
+}
+
+.box2 {
+    background-color: red;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.span1 {
+    background-color: yellow;
+    position: absolute;
+    bottom: 0;
+}
+
+.span2 {
+    background-color: green;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}

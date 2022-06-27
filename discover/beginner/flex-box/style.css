@@ -10,8 +10,7 @@ body {
     width: 100vw;
     display: flex;
     /* flex-direction: column; -> muda para coluna */ 
-    justify-content: center; /* space-between: separa os elementos com espaço */
-    
+    justify-content: space-between; /* space-between: separa os elementos com espaço */
 }
 
 .box {

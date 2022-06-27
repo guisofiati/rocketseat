@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Registration</title>
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <fieldset>
+          <legend>Registration</legend>
+          <div class="details">
+            <label for="fullname" id="name-label lab">Full name</label>
+            <input
+              type="text"
+              id="fullname"
+              name="name"
+              placeholder="Enter your full name"
+              required
+              autofocus
+            />
+            <br />
+            <label for="email" id="email-label lab">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your main email"
+              required
+            />
+            <br />
+            <label for="username" id="username-label lab">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter an username"
+              required
+            />
+            <br />
+            <label for="phone" id="phone-label lab">Phone number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Enter your phone number"
+              required
+              inputmode="numeric"
+              pattern="[0-9]{11}"
+              title="Your phone must have 11 numbers. (BR)"
+            />
+            <br />
+            <label for="password" id="password-label lab">Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter a strong password"
+              pattern="[0-9a-zA-z]{8}"
+              title="Your password must have at least 8 characters"
+              size="25"
+              required
+              autocomplete="current-password"
+            />
+            <br />
+            <label
+              for="password-confirmation"
+              id="password-confirmation-label lab"
+              >Password:</label
+            >
+            <input
+              type="password"
+              id="password-confirmation"
+              name="password-confirmation"
+              placeholder="Confirm your password"
+              pattern="[0-9a-zA-z]{8}"
+              title="Your password must be equal"
+              size="25"
+              required
+              autocomplete="current-password"
+            />
+          </div>
+          <label>Gender</label>
+          <br />
+          <label for="male" id="gender-male-label lab">Male</label>
+          <input type="radio" id="male" name="gender" value="male" />
+          <label for="female" id="gender-female-label lab">Female</label>
+          <input type="radio" id="female" name="gender" value="female" />
+          <label for="not-answered" id="gender-not-answered-label lab"
+            >Prefer not to say</label
+          >
+          <input
+            type="radio"
+            id="not-answered"
+            name="gender"
+            value="notdefined"
+            checked
+          />
+          <br />
+          <button type="submit">Register</button>
+          <button type="reset">Clean</button>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>

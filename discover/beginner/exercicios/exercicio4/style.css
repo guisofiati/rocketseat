@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    padding: 50px;
+    display: flex;
+    gap: 30px;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    line-height: 0;
+    gap: .4rem;
+    padding: 0 5px 0 0;
+}

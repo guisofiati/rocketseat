@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+}
+
+footer {
+    border: 1px solid black;
+    background-color: rgb(151, 143, 143);
+    color: white;
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin-top: auto;
+    align-items: center;
+}

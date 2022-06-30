@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    gap: 1rem;
+    height: 100vh;
+    padding: 15px;
+}
+
+aside, main {
+    background-color: rgb(208, 208, 208);
+    border: 1px solid;
+}
+
+aside {
+    flex-basis: 25%
+}
+
+main {
+    flex: 1;
+}

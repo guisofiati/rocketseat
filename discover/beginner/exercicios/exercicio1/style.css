@@ -15,20 +15,20 @@ header {
     font-weight: bold;
 }
 
-header ul {
+ul {
     display: flex;
-    gap: 1.5rem;
+    gap: .8rem;
     list-style-type: none;
 }
 
-header ul a {
+a {
     text-decoration: none;
     color: #000;
     font-family: 'Noto Sans', sans-serif;
     font-weight: 400;
 }
 
-header li a:hover {
+a:hover {
     color: #3A17F2;
     text-decoration: underline #3A17F2;
 }

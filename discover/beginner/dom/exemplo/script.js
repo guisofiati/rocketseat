@@ -6,6 +6,7 @@ div.style.color = '#fff';
 button.addEventListener('click', addDiv);
 
 document.addEventListener('keyup', function(event) {
+    console.log(event)
     if (event.key == 'Escape') {
      removeDiv();
     }

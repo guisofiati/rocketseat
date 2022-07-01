@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <script src="./script.js"></script>
-
+  </head>
+  <body>
     <h1 id="blog-title">Blog</h1>
 
     <p class="product">Produto 1</p>
@@ -16,8 +14,38 @@
 
     <h2 class="sub-title">Contato</h2>
 
-    <img src="https://source.unsplash.com/random" alt="Imagem random">
-    
-</body>
+    <img src="https://source.unsplash.com/random" alt="Imagem random" />
 
+    <br />
+    <input type="text" />
+
+    <h3>Ola</h3>
+
+    <button>Click</button>
+
+    <section id="section-articles">
+      <article>
+        <p id="article-main">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Necessitatibus quod quisquam at voluptatibus delectus accusamus
+          impedit voluptatum consequatur consequuntur, id, commodi, veritatis
+          dicta doloremque quia ullam sed ducimus totam eveniet?
+        </p>
+        <p id="article-main">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure,
+          molestiae a? Reprehenderit, modi quisquam fugiat laudantium facere
+          eligendi nostrum magnam facilis laborum nisi, ipsam voluptatibus
+          ducimus quaerat debitis ipsum amet.
+        </p>
+      </article>
+    </section>
+
+    <!-- sempre deixar o script no final para nao dar null -->
+    <script src="./script.js"></script>
+
+    <button type="button" onclick="print()">Click</button>
+    <h1 ondblclick="showMessage()">Click twice</h1>
+    <h1 onmouseover="hello()">Over</h1>
+    <script src="./events.js"></script>
+  </body>
 </html>

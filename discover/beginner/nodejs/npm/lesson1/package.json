@@ -1,0 +1,16 @@
+{
+  "name": "qualquer-nome",
+  "version": "1.0.0",
+  "description": "Aprendendo Node",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Guilherme Sofiati Fantin",
+  "license": "MIT",
+  "dependencies": {
+    "cfonts": "^3.1.0",
+    "moment": "^2.29.3"
+  }
+}

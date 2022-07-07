@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-  <%- include('../partials/head') %>
+<%- include('../partials/head') %>
 <html lang="pt-BR">
   <body class="container">
     <%- include('../partials/header') %>
@@ -7,7 +7,40 @@
       <div>
         <h1 class="display-4">Node com EJS</h1>
         <p class="lead">Aprendendo a trabalhar com arquivos EJS</p>
+        <p class="lead"> <%= subtitle %> </p>
       </div>
+
+      <!-- 
+        Hardcode, não dinamico
+        <ul>
+        <li>
+          <strong>Message: </strong>
+          <span>...</span>
+        </li>
+        <li>
+          <strong>Message: </strong>
+          <span>...</span>
+        </li>
+        <li>
+          <strong>Message: </strong>
+          <span>...</span>
+        </li>
+        <li>
+          <strong>Message: </strong>
+          <span>...</span>
+        </li>
+      </ul>
+      -->
+
+      <ul>
+        <% messages.forEach(function(item){ %>
+          <li>
+            <strong>User id: <%= item.id %> </strong>
+            <span>Message: <%= item.message %> </span>
+          </li>
+        <% }) %>
+      </ul>
+
     </main>
     <%- include('../partials/footer') %>
   </body>

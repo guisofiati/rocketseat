@@ -4,6 +4,6 @@ const app = express();
 
 app.listen("3000");
 
-app.route("/").get((req, res) => res.send("oi"));
-app.route("/:nome").get((req, res) => res.send(req.params.nome));
-app.route("/identidade/:nome").get((req, res) => res.send(req.params.nome));
+//app.route("/").get((req, res) => res.send(req.query.nome)); // um campo
+app.route("/").get((req, res) => res.send(req.query));
+app.route("/about/user").get((req, res) => res.send(req.query));

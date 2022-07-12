@@ -6,8 +6,12 @@ app.listen("3000");
 
 app.use(express.json());
 
-app.route("/").get((req, res) => res.send(req.query.name));
-
-app.route("/").post((req, res) => res.send(req.body));
-
-app.route("/:param").get((req, res) => res.send(req.params.param));
+// aceita body: post, put, e patch
+app.route("/").post((req, res) => {
+    //console.log(req.body);
+    //res.send(req.body); -> tudo
+    //res.send(req.body.telefone);
+    //res.send(req.statusCode);
+    const { nome, telefone } = req.body; // desmembrando
+    res.send(`Nome: ${nome} telefones: ${telefone}`);
+});

@@ -4,8 +4,11 @@ const app = express();
 
 app.listen("3000");
 
-app.route("/").get((req, res) => {
-    res.send("hello world");
-});
+//middleware -> ponte entre as reqs.
+// quando mando algo do postman para ca, primeiro ele passa pelo middleware e dps executa
+app.use(express.json());
 
-app.route("/about").get((req, res) => res.send("page about"));
+app.route("/").post((req, res) => {
+    console.log(req.body);
+    res.send(req.body);
+});

@@ -8,4 +8,23 @@ function getUsers() {
     });
 }
 
+function insertUser() {
+    axios
+        // .post(url, {
+        //     name: "Olivia Martins",
+        //     avatar: "https://source.unsplash.com/random",
+        //     city: "São Paulo",
+        // })
+        .post(url, newUser)
+        .then((res) => console.log(res))
+        .catch((e) => console.error(e));
+}
+
+const newUser = {
+    name: "Olivia Martins",
+    avatar: "https://source.unsplash.com/random",
+    city: "São Paulo",
+};
+
 getUsers();
+//insertUser();

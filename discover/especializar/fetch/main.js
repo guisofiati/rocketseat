@@ -7,8 +7,8 @@ function getUsers() {
         .catch((error) => console.error(error));
 }
 
-function getUserById() {
-    fetch(`${url}/1`)
+function getUserById(id) {
+    fetch(`${url}/${id}`)
         .then((res) => res.json())
         .then((data) => {
             // data / data.avatar / data.city
@@ -32,12 +32,32 @@ function addUser(newUser) {
         .catch((e) => console.error(e));
 }
 
+function updateUser(updatedUser, id) {
+    fetch(`${url}/${id}`, {
+        method: "PUT",
+        body: JSON.stringify(updatedUser),
+        headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+        },
+    })
+        .then((res) => res.json())
+        .then((data) => (alertApi.textContent = data))
+        .catch((e) => console.error(e));
+}
+
 const newUser = {
     name: "Maria Joana",
     avatar: "https://source.unsplash.com/random",
     city: "São Paulo",
 };
-
 addUser(newUser);
-getUserById();
+
+const updatedUser = {
+    name: "Marcia Sofiati",
+    avatar: "https://source.unsplash.com/random",
+    city: "Curitiba",
+};
+updateUser(updatedUser, 1);
+
+getUserById(1);
 getUsers();

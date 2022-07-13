@@ -26,5 +26,18 @@ const newUser = {
     city: "São Paulo",
 };
 
+function getUserById(uID) {
+    axios
+        .get(`${url}/${uID}`)
+        .then((res) => {
+            (userId.textContent = res.data.id),
+                (userName.textContent = res.data.name),
+                (userCity.textContent = res.data.city),
+                (userAvatar.src = res.data.avatar);
+        })
+        .catch((e) => console.error(e));
+}
+
 getUsers();
 //insertUser();
+getUserById(1);

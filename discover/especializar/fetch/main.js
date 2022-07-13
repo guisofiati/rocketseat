@@ -19,5 +19,25 @@ function getUserById() {
         .catch((e) => console.error(e));
 }
 
+function addUser(newUser) {
+    fetch(url, {
+        method: "POST",
+        body: JSON.stringify(newUser),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8",
+        },
+    })
+        .then((res) => res.json())
+        .then((data) => (alertApi.textContent = data))
+        .catch((e) => console.error(e));
+}
+
+const newUser = {
+    name: "Maria Joana",
+    avatar: "https://source.unsplash.com/random",
+    city: "São Paulo",
+};
+
+addUser(newUser);
 getUserById();
 getUsers();

@@ -1,5 +1,3 @@
-const e = require("cors");
-
 const url = "http://localhost:5500/api";
 
 function getUsers() {
@@ -64,16 +62,15 @@ const newUser = {
     avatar: "https://source.unsplash.com/random",
     city: "São Paulo",
 };
-addUser(newUser);
 
 const updatedUser = {
     name: "Marcia Sofiati",
     avatar: "https://source.unsplash.com/random",
     city: "Curitiba",
 };
-updateUser(updatedUser, 1);
 
+addUser(newUser);
+updateUser(updatedUser, 1);
 getUserById(1);
 getUsers();
-
 deleteUser(5);

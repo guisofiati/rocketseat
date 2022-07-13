@@ -1,3 +1,5 @@
+const e = require("cors");
+
 const url = "http://localhost:5500/api";
 
 function getUsers() {
@@ -45,6 +47,18 @@ function updateUser(updatedUser, id) {
         .catch((e) => console.error(e));
 }
 
+function deleteUser(id) {
+    fetch(`${url}/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+        },
+    })
+        .then((res) => res.json())
+        .then((data) => (alertApi.textContent = data))
+        .catch((e) => console.error(e));
+}
+
 const newUser = {
     name: "Maria Joana",
     avatar: "https://source.unsplash.com/random",
@@ -61,3 +75,5 @@ updateUser(updatedUser, 1);
 
 getUserById(1);
 getUsers();
+
+deleteUser(5);

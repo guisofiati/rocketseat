@@ -34,6 +34,13 @@ function updateUser(uID, updatedUser) {
         .catch((e) => console.error(e));
 }
 
+function deleteUser(uID) {
+    axios
+        .delete(`${url}/${uID}`)
+        .then((res) => console.log(res))
+        .catch((e) => console.error(e));
+}
+
 const newUser = {
     name: "Olivia Martins",
     avatar: "https://source.unsplash.com/random",
@@ -47,6 +54,7 @@ const updatedUser = {
 };
 
 getUsers();
-//insertUser();
+insertUser();
 getUserById(1);
 updateUser(1, updatedUser);
+deleteUser(2);

@@ -10,21 +10,10 @@ function getUsers() {
 
 function insertUser() {
     axios
-        // .post(url, {
-        //     name: "Olivia Martins",
-        //     avatar: "https://source.unsplash.com/random",
-        //     city: "São Paulo",
-        // })
         .post(url, newUser)
         .then((res) => console.log(res))
         .catch((e) => console.error(e));
 }
-
-const newUser = {
-    name: "Olivia Martins",
-    avatar: "https://source.unsplash.com/random",
-    city: "São Paulo",
-};
 
 function getUserById(uID) {
     axios
@@ -38,6 +27,26 @@ function getUserById(uID) {
         .catch((e) => console.error(e));
 }
 
+function updateUser(uID, updatedUser) {
+    axios
+        .put(`${url}/${uID}`, updatedUser)
+        .then((res) => console.log(res))
+        .catch((e) => console.error(e));
+}
+
+const newUser = {
+    name: "Olivia Martins",
+    avatar: "https://source.unsplash.com/random",
+    city: "São Paulo",
+};
+
+const updatedUser = {
+    name: "João Silva",
+    avatar: "https://source.unsplash.com/random",
+    city: "São Paulo",
+};
+
 getUsers();
 //insertUser();
 getUserById(1);
+updateUser(1, updatedUser);

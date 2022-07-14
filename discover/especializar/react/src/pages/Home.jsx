@@ -1,7 +1,11 @@
 function Home() {
-  return (
-   <h1>Lista de Presença</h1>
-  )
+    return (
+        <>
+            <h1>Lista de Presença</h1>
+            <input type="text" placeholder="Digite um nome" />
+            <button type="button">Adicionar</button>
+        </>
+    );
 }
 
-export default Home
+export default Home;

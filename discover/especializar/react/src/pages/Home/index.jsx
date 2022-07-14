@@ -25,7 +25,16 @@ export function Home() {
     return (
         <>
             <div className="container">
-                <h1>Lista de Presença</h1>
+                <header>
+                    <h1>Lista de Presença</h1>
+                    <div>
+                        <strong>Guilherme Sofiati Fantin</strong>
+                        <img
+                            src="https://github.com/guisofiati.png"
+                            alt="Foto de perfil do Github"
+                        />
+                    </div>
+                </header>
                 <h2>Nome: {studentName}</h2>
                 <input
                     type="text"

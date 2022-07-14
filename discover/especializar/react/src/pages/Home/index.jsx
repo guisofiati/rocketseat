@@ -5,6 +5,23 @@ import { Card } from "../../components/Card";
 
 export function Home() {
     const [studentName, setStudentName] = useState(""); // valor inicial da var
+    const [students, setStudents] = useState([]);
+
+    function handleAddNewStudent() {
+        const newStudent = {
+            name: studentName,
+            time: new Date().toLocaleTimeString("pt-br", {
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+            }),
+        };
+
+        // conteudo do estado anterior + o novo estudante
+        // ... (spread operator). 'despejar' o que tinha no outro vetor e colocar no novo
+        setStudents((previewState) => [...previewState, newStudent]);
+    }
+
     return (
         <>
             <div className="container">
@@ -16,10 +33,13 @@ export function Home() {
                     onChange={(event) => setStudentName(event.target.value)}
                     // pegando o conteudo atual do input, e atualizando o setStudentName
                 />
-                <button type="button">Adicionar</button>
-                <Card name="Jose da Silva" time="10:55:22" />
-                <Card name="Maria das Dores" time="11:31:02" />
-                <Card name="João Pedro" time="18:05:33" />
+                <button type="button" onClick={handleAddNewStudent}>
+                    Adicionar
+                </button>
+
+                {students.map((student) => (
+                    <Card name={student.name} time={student.time} />
+                ))}
             </div>
         </>
     );

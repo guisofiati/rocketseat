@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
 
 import { Card } from "../../components/Card";
@@ -21,6 +21,12 @@ export function Home() {
         // ... (spread operator). 'despejar' o que tinha no outro vetor e colocar no novo
         setStudents((previewState) => [...previewState, newStudent]);
     }
+
+    useEffect(() => {
+        console.log(
+            "useEffect foi chamado pois a sua dependencia foi atualizada!"
+        );
+    }, [students]);
 
     return (
         <>

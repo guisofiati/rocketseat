@@ -24,16 +24,19 @@ export function Home() {
     }
 
     useEffect(() => {
-        console.log(
-            fetch("https://api.github.com/users/guisofiati")
-                .then((response) => response.json())
-                .then((data) => {
-                    setUser({
-                        name: data.name,
-                        avatar: data.avatar_url,
-                    });
-                })
-        );
+        async function fetchData() {
+            const response = await fetch(
+                "https://api.github.com/users/guisofiati"
+            );
+            const data = await response.json();
+            console.log(data);
+            setUser({
+                name: data.name,
+                avatar: data.avatar_url,
+            });
+        }
+
+        fetchData();
     }, []);
 
     return (

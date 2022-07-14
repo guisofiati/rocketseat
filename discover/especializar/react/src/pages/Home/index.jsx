@@ -38,7 +38,11 @@ export function Home() {
                 </button>
 
                 {students.map((student) => (
-                    <Card name={student.name} time={student.time} />
+                    <Card
+                        key={student.time} // n recomendavel, pois nao podem ser iguais.
+                        name={student.name}
+                        time={student.time}
+                    />
                 ))}
             </div>
         </>

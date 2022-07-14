@@ -6,6 +6,7 @@ import { Card } from "../../components/Card";
 export function Home() {
     const [studentName, setStudentName] = useState(""); // valor inicial da var
     const [students, setStudents] = useState([]);
+    const [user, setUser] = useState({ name: "", avatar: "" });
 
     function handleAddNewStudent() {
         const newStudent = {
@@ -24,9 +25,16 @@ export function Home() {
 
     useEffect(() => {
         console.log(
-            "useEffect foi chamado pois a sua dependencia foi atualizada!"
+            fetch("https://api.github.com/users/guisofiati")
+                .then((response) => response.json())
+                .then((data) => {
+                    setUser({
+                        name: data.name,
+                        avatar: data.avatar_url,
+                    });
+                })
         );
-    }, [students]);
+    }, []);
 
     return (
         <>
@@ -34,11 +42,8 @@ export function Home() {
                 <header>
                     <h1>Lista de Presença</h1>
                     <div>
-                        <strong>Guilherme Sofiati Fantin</strong>
-                        <img
-                            src="https://github.com/guisofiati.png"
-                            alt="Foto de perfil do Github"
-                        />
+                        <strong>{user.name}</strong>
+                        <img src={user.avatar} alt="Foto de perfil do Github" />
                     </div>
                 </header>
                 <h2>Nome: {studentName}</h2>

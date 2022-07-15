@@ -3,10 +3,20 @@ import "./styles.css";
 
 import { Card, CardProps } from "../../components/Card";
 
+type DataAPI = {
+    name: string;
+    avatar_url: string;
+}
+
+type User = {
+    name: string;
+    avatar: string;
+}
+
 export function Home() {
     const [studentName, setStudentName] = useState(""); // valor inicial da var
     const [students, setStudents] = useState<CardProps[]>([]);
-    const [user, setUser] = useState({ name: "", avatar: "" });
+    const [user, setUser] = useState<User>({} as User);
 
     function handleAddNewStudent() {
         const newStudent = {
@@ -29,7 +39,7 @@ export function Home() {
                 "https://api.github.com/users/guisofiati"
             );
             const data = await response.json();
-            console.log(data);
+            console.log("API data:", data);
             setUser({
                 name: data.name,
                 avatar: data.avatar_url,

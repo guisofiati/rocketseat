@@ -41,6 +41,7 @@ body {
 
 .circle-3 {
     background-color: lightblue;
+    transition: all 1s linear 0s;
 }
 
 .circle-4 {
@@ -58,6 +59,14 @@ body {
     background-color: yellow;
     transition: background-color 1s ease-in; /* 1s a animação */
     transition-delay: 4s; /* delay para começar a animação */
+}
+
+.circle-3:hover {
+    background-color: blueviolet;
+    width: 300px;
+    height: 300px;
+    transition: all 1s ease-out;
+    border-radius: 8px;
 }
 
 /****************/

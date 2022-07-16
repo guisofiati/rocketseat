@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.container {
+    height: 100vh;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.circles {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.circle-1 {
+    background-color: lightcoral;
+    /*
+    se nao colocar aqui também, assim que tira
+    o mouse, ele muda instantaneamente
+
+    transition-property: all (pega todas as mudanças)
+    */
+    transition-property: all;
+    transition-duration: 2s;
+}
+
+.circle-2 {
+    background-color: lightgreen;
+}
+
+.circle-3 {
+    background-color: lightblue;
+}
+
+.circle-4 {
+    background-color: lightsalmon;
+}
+
+.circle-1:hover {
+    background-color: lightslategray;
+    transition-property: background-color, width;
+    transition-duration: 2s;
+    width: 150px;
+}

@@ -19,7 +19,7 @@ body {
 .circles {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 100%;
 }
 
 .circle-1 {
@@ -36,6 +36,7 @@ body {
 
 .circle-2 {
     background-color: lightgreen;
+    transition: background-color 1s ease 4s;
 }
 
 .circle-3 {
@@ -51,6 +52,12 @@ body {
     transition-property: background-color, width;
     transition-duration: 2s;
     width: 150px;
+}
+
+.circle-2:hover {
+    background-color: yellow;
+    transition: background-color 1s ease-in; /* 1s a animação */
+    transition-delay: 4s; /* delay para começar a animação */
 }
 
 /****************/

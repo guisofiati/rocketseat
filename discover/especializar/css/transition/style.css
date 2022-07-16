@@ -46,6 +46,7 @@ body {
 
 .circle-4 {
     background-color: lightsalmon;
+    transition: all 1s linear;
 }
 
 .circle-1:hover {
@@ -67,6 +68,11 @@ body {
     height: 300px;
     transition: all 1s ease-out;
     border-radius: 8px;
+}
+
+.circle-4:hover {
+    opacity: 0;
+    transition: opacity 1s linear 0s;
 }
 
 /****************/

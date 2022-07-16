@@ -52,3 +52,48 @@ body {
     transition-duration: 2s;
     width: 150px;
 }
+
+/****************/
+
+.line {
+    font-size: 10px;
+    width: 100%;
+    height: 20px;
+    margin-bottom: 10px;
+    background-color: lightblue;
+
+    transition: width;
+    transition-duration: 1s;
+}
+
+.line:hover {
+    width: 50px;
+    background-color: lightgreen;
+}
+
+/* padrão */
+.ease {
+    transition-timing-function: ease;
+}
+
+.ease-in {
+    transition-timing-function: ease-in;
+}
+
+.ease-out {
+    transition-timing-function: ease-out;
+}
+
+.ease-in-out {
+    transition-timing-function: ease-in-out;
+}
+
+.linear {
+    transition-timing-function: linear;
+}
+
+.cubic {
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/****************/

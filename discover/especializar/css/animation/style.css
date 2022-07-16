@@ -12,22 +12,27 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .balls {
     width: 70px;
     height: 70px;
     border-radius: 100%;
+    position: relative;
 }
 
 .ball-1 {
-    position: relative;
     background-color: lightcoral;
 
     /* pra funcionar precisa do name e duration */
     animation-name: exemplo-animacao-1;
     animation-duration: 4s;
+}
+
+.ball-2 {
+    background-color: lightgreen;
+    animation: exemplo-animacao-2 10s;
 }
 
 @keyframes exemplo-animacao-1 {
@@ -38,5 +43,27 @@ body {
     /* e va para o verde */
     to {
         background-color: lightgreen;
+    }
+}
+
+@keyframes exemplo-animacao-2 {
+    0% {
+        background-color: blueviolet;
+    }
+
+    25% {
+        background-color: blue;
+    }
+
+    50% {
+        background-color: green;
+    }
+
+    75% {
+        background-color: yellow;
+    }
+
+    100% {
+        background-color: gray;
     }
 }

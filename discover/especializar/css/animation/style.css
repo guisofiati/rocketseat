@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.balls {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+}
+
+.ball-1 {
+    position: relative;
+    background-color: lightcoral;
+
+    /* pra funcionar precisa do name e duration */
+    animation-name: exemplo-animacao-1;
+    animation-duration: 4s;
+}
+
+@keyframes exemplo-animacao-1 {
+    /* vai começar a animação com azul*/
+    from {
+        background-color: lightblue;
+    }
+    /* e va para o verde */
+    to {
+        background-color: lightgreen;
+    }
+}

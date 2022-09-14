@@ -2,6 +2,9 @@
 module.exports = {
     content: ["./src/**/*.tsx", "./index.html"], // onde vao estar os arquivos html que vao ter classes do tailwind
     theme: {
+        fontFamily: {
+            sans: ["Inter", "sans-serif"],
+        },
         extend: {
             backgroundImage: {
                 galaxy: "url('/background-galaxy.png')",

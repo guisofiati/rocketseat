@@ -1,14 +1,23 @@
+import { useEffect, useState } from "react";
 import { Image, View, FlatList } from "react-native";
 
-import LogoImg from "../../assets/logo-nlw-esports.png";
-import { GameCard } from "../../components/GameCard";
+import { GameCard, GameCardProps } from "../../components/GameCard";
 import { Heading } from "../../components/Heading";
 
-import { GAMES } from "../../utils/games";
-
+import LogoImg from "../../assets/logo-nlw-esports.png";
 import { styles } from "./styles";
 
 export function Home() {
+  const [games, setGames] = useState<GameCardProps[]>([]);
+
+  useEffect(() => {
+    fetch("http://192.168.15.16:3333/games")
+      .then((response) => response.json())
+      .then((data) => {
+        setGames(data);
+      });
+  }, []);
+
   return (
     <View style={styles.container}>
       <Image
@@ -23,12 +32,12 @@ export function Home() {
       />
 
       <FlatList
-        contentContainerStyle={styles.contentList}
-        data={GAMES}
         keyExtractor={(item) => item.id}
+        data={games}
         renderItem={({ item }) => <GameCard data={item} />}
         horizontal
         showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.contentList}
       />
     </View>
   );

@@ -3,7 +3,7 @@ import * as Checkbox from "@radix-ui/react-checkbox";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import { Input } from "./Form/input";
 import { Check, GameController } from "phosphor-react";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 interface Game {
     id: string;
@@ -12,6 +12,8 @@ interface Game {
 
 export function CreateAdModal() {
     const [games, setGames] = useState<Game[]>([]);
+    const [weekDays, setWeekDays] = useState<string[]>([]);
+    const [useVoiceChannel, setUseVoiceChannel] = useState(false);
 
     useEffect(() => {
         fetch("http://localhost:3333/games")
@@ -21,6 +23,17 @@ export function CreateAdModal() {
             });
     }, []);
 
+    function handleCreateAd(event: FormEvent) {
+        event.preventDefault();
+
+        const formData = new FormData(event.target as HTMLFormElement);
+        const data = Object.fromEntries(formData);
+
+        console.log(data);
+        console.log(weekDays);
+        console.log(useVoiceChannel);
+    }
+
     return (
         <Dialog.Portal>
             <Dialog.Overlay className="bg-black/60 inset-0 fixed" />
@@ -28,7 +41,11 @@ export function CreateAdModal() {
                 <Dialog.Title className="text-3xl font-black">
                     Publique um anúncio
                 </Dialog.Title>
-                <form className="mt-8 flex flex-col gap-4">
+
+                <form
+                    className="mt-8 flex flex-col gap-4"
+                    onSubmit={handleCreateAd}
+                >
                     <div className="flex flex-col gap-2">
                         <label className="font-semibold" htmlFor="game">
                             Qual o game?
@@ -37,6 +54,7 @@ export function CreateAdModal() {
                             defaultValue=""
                             className="bg-zinc-900 py-3 px-4 rounded text-sm placeholder:text-zinc-500"
                             id="game"
+                            name="game"
                         >
                             <option disabled value="">
                                 Selecione o game que deseja jogar
@@ -54,6 +72,7 @@ export function CreateAdModal() {
                     <div className="flex flex-col gap-2">
                         <label htmlFor="name">Seu nome (ou nickname)</label>
                         <Input
+                            name="name"
                             id="name"
                             type="text"
                             placeholder="Como te chamam dentro do game?"
@@ -66,6 +85,7 @@ export function CreateAdModal() {
                                 Joga há quantos anos?
                             </label>
                             <Input
+                                name="yearsPlaying"
                                 id="yearsPlaying"
                                 type="number"
                                 placeholder="Tudo bem ser ZERO"
@@ -74,6 +94,7 @@ export function CreateAdModal() {
                         <div className="flex flex-col gap-2">
                             <label htmlFor="discord">Qual o seu discord?</label>
                             <Input
+                                name="discord"
                                 id="discord"
                                 type="text"
                                 placeholder="Usuario#0000"
@@ -89,11 +110,16 @@ export function CreateAdModal() {
                             <ToggleGroup.Root
                                 type="multiple"
                                 className="grid grid-cols-4 gap-2"
-                                onValueChange={console.log}
+                                value={weekDays}
+                                onValueChange={setWeekDays}
                             >
                                 <ToggleGroup.Item
                                     value="0"
-                                    className="w-8 h-8 rounded bg-zinc-900"
+                                    className={`w-8 h-8 rounded ${
+                                        weekDays.includes("0")
+                                            ? "bg-violet-500"
+                                            : "bg-zinc-900"
+                                    }`}
                                     title="Domingo"
                                 >
                                     D
@@ -101,7 +127,11 @@ export function CreateAdModal() {
 
                                 <ToggleGroup.Item
                                     value="1"
-                                    className="w-8 h-8 rounded bg-zinc-900"
+                                    className={`w-8 h-8 rounded ${
+                                        weekDays.includes("1")
+                                            ? "bg-violet-500"
+                                            : "bg-zinc-900"
+                                    }`}
                                     title="Segunda"
                                 >
                                     S
@@ -109,7 +139,11 @@ export function CreateAdModal() {
 
                                 <ToggleGroup.Item
                                     value="2"
-                                    className="w-8 h-8 rounded bg-zinc-900"
+                                    className={`w-8 h-8 rounded ${
+                                        weekDays.includes("2")
+                                            ? "bg-violet-500"
+                                            : "bg-zinc-900"
+                                    }`}
                                     title="Terça"
                                 >
                                     T
@@ -117,7 +151,11 @@ export function CreateAdModal() {
 
                                 <ToggleGroup.Item
                                     value="3"
-                                    className="w-8 h-8 rounded bg-zinc-900"
+                                    className={`w-8 h-8 rounded ${
+                                        weekDays.includes("3")
+                                            ? "bg-violet-500"
+                                            : "bg-zinc-900"
+                                    }`}
                                     title="Quarta"
                                 >
                                     Q
@@ -125,7 +163,11 @@ export function CreateAdModal() {
 
                                 <ToggleGroup.Item
                                     value="4"
-                                    className="w-8 h-8 rounded bg-zinc-900"
+                                    className={`w-8 h-8 rounded ${
+                                        weekDays.includes("4")
+                                            ? "bg-violet-500"
+                                            : "bg-zinc-900"
+                                    }`}
                                     title="Quinta"
                                 >
                                     Q
@@ -133,7 +175,11 @@ export function CreateAdModal() {
 
                                 <ToggleGroup.Item
                                     value="5"
-                                    className="w-8 h-8 rounded bg-zinc-900"
+                                    className={`w-8 h-8 rounded ${
+                                        weekDays.includes("5")
+                                            ? "bg-violet-500"
+                                            : "bg-zinc-900"
+                                    }`}
                                     title="Sexta"
                                 >
                                     S
@@ -141,7 +187,11 @@ export function CreateAdModal() {
 
                                 <ToggleGroup.Item
                                     value="6"
-                                    className="w-8 h-8 rounded bg-zinc-900"
+                                    className={`w-8 h-8 rounded ${
+                                        weekDays.includes("6")
+                                            ? "bg-violet-500"
+                                            : "bg-zinc-900"
+                                    }`}
                                     title="Sábado"
                                 >
                                     S
@@ -154,11 +204,13 @@ export function CreateAdModal() {
                             </label>
                             <div className="grid grid-cols-2 gap-2">
                                 <Input
+                                    name="hourStart"
                                     id="hourStart"
                                     type="time"
                                     placeholder="De"
                                 />
                                 <Input
+                                    name="hourEnd"
                                     id="hourEnd"
                                     type="time"
                                     placeholder="Até"
@@ -167,14 +219,24 @@ export function CreateAdModal() {
                         </div>
                     </div>
 
-                    <div className="mt-2 flex gap-2 items-center text-sm">
-                        <Checkbox.Root className="w-6 h-6 p-1 rounded bg-zinc-900">
+                    <label className="mt-2 flex gap-2 items-center text-sm">
+                        <Checkbox.Root
+                            checked={useVoiceChannel}
+                            className="w-6 h-6 p-1 rounded bg-zinc-900"
+                            onCheckedChange={(checked) => {
+                                if (checked) {
+                                    setUseVoiceChannel(true);
+                                } else {
+                                    setUseVoiceChannel(false);
+                                }
+                            }}
+                        >
                             <Checkbox.Indicator>
                                 <Check className="w-4 h-4 text-emerald-400" />
                             </Checkbox.Indicator>
                         </Checkbox.Root>
                         Consumo me conectar no chat de voz
-                    </div>
+                    </label>
 
                     <footer className="mt-4 flex justify-end gap-4">
                         <Dialog.Close

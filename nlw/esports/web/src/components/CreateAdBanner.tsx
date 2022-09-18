@@ -13,11 +13,9 @@ export function CreateAdBanner() {
                         Publique um anúncio para encontrar novos players!
                     </span>
                 </div>
-                <Dialog.Trigger>
-                    <button className="py-3 px-4 bg-violet-500 hover:bg-violet-600 text-white rounded flex items-center gap-3">
-                        <MagnifyingGlassPlus size={24} />
-                        Publicar anúncio
-                    </button>
+                <Dialog.Trigger className="py-3 px-4 bg-violet-500 hover:bg-violet-600 text-white rounded flex items-center gap-3">
+                    <MagnifyingGlassPlus size={24} />
+                    Publicar anúncio
                 </Dialog.Trigger>
             </div>
         </div>

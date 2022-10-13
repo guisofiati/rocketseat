@@ -7,7 +7,16 @@ export default {
     // mesma coisa que props
     args: {
         children: "Lorem Ipsum",
-        size: "lg",
+        size: "md",
+    },
+    //opções disponiveis
+    argTypes: {
+        size: {
+            options: ["sm", "md", "lg"],
+            control: {
+                type: "inline-radio",
+            },
+        },
     },
 } as Meta<TextProps>; // trazer a intelicense para autocomplete
 
@@ -30,5 +39,12 @@ export const CustomComponent: StoryObj<TextProps> = {
     args: {
         asChild: true,
         children: <p>Testing</p>,
+    },
+    argTypes: {
+        children: {
+            table: {
+                disable: true,
+            },
+        },
     },
 };

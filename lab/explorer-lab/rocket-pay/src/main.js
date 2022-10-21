@@ -107,3 +107,51 @@ const creditCardNumberMask = IMask(
   creditCardNumberElement,
   creditCardNumberPattern
 )
+
+const addButton = document.querySelector("#add-card")
+addButton.addEventListener("click", () => {
+  alert("Cartão adicionado!")
+})
+
+document.querySelector("form").addEventListener("submit", (event) => {
+  event.preventDefault()
+})
+
+const creditCardHolder = document.querySelector("#card-holder")
+creditCardHolder.addEventListener("input", () => {
+  const creditCardHolderFixedText = document.querySelector(".cc-holder .value")
+
+  creditCardHolderFixedText.innerText =
+    creditCardHolder.value.length === 0
+      ? "FULANO DA SILVA"
+      : creditCardHolder.value
+})
+
+creditCardSecurityCodeMask.on("accept", () => {
+  updateCreditCardSecurityCode(creditCardSecurityCodeMask.value)
+})
+
+function updateCreditCardSecurityCode(code) {
+  const ccSecurity = document.querySelector(".cc-security .value")
+  ccSecurity.innerText = code.length === 0 ? "123" : code
+}
+
+creditCardNumberMask.on("accept", () => {
+  const cardType = creditCardNumberMask.masked.currentMask.cardType
+  setCardType(cardType)
+  updateCreditCardNumber(creditCardNumberMask.value)
+})
+
+function updateCreditCardNumber(number) {
+  const ccNumber = document.querySelector(".cc-number")
+  ccNumber.innerText = number.length === 0 ? "1234 5678 9012 3456" : number
+}
+
+creditCardExpirationDateMask.on("accept", () => {
+  updateCreditCardExpirationDate(creditCardExpirationDateMask.value)
+})
+
+function updateCreditCardExpirationDate(date) {
+  const ccExpirationDate = document.querySelector(".cc-extra .value")
+  ccExpirationDate.innerText = date.length === 0 ? "02/32" : date
+}

@@ -77,6 +77,22 @@ app.get("/account", verifyIfExistsAccountWithInformedCPF, (request, response) =>
     return response.json(customer);
 });
 
+app.delete("/account", verifyIfExistsAccountWithInformedCPF, (request, response) => {
+    const { customer } = request;
+
+    customers.splice(customer, 1);
+
+    return response.status(204).send();
+});
+
+app.get("/balance", verifyIfExistsAccountWithInformedCPF, (request, response) => {
+    const { customer } = request;
+
+    const balance = getBalance(customer.statements);
+
+    return response.json(balance);
+});
+
 app.get("/statements", verifyIfExistsAccountWithInformedCPF, (request, response) => {
     const { customer } = request;
 

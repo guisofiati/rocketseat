@@ -68,6 +68,19 @@ app.get("/statements", verifyIfExistsAccountWithInformedCPF, (request, response)
     return response.json(customer.statements);
 });
 
+app.get("/statements", verifyIfExistsAccountWithInformedCPF, (request, response) => {
+    const { date } = request.query;
+    const { customer } = request;
+
+    // passar em yyyy/mm/dd
+    const dateFormat = new Date(date + " 00:00");
+
+    const statementsOfSelectedDay = customer.statements.filter(statement => 
+        statement.created_at.toDateString() === new Date(dateFormat).toDateString()); 
+
+    return response.json(statementsOfSelectedDay);
+});
+
 app.post("/deposit", verifyIfExistsAccountWithInformedCPF, (request, response) => {
     const { description, amount } = request.body;
 

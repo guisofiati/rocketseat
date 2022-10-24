@@ -62,6 +62,21 @@ app.post("/account", (request, response) => {
 // com o app.use(verifyIfExistsAccountWithInformedCPF) todas os endpoints abaixo dele
 // usarao esse middlware, nao sendo necessario passar como parametro nas funcoes como passado abaixo
 
+app.put("/account", verifyIfExistsAccountWithInformedCPF, (request, response) => {
+    const { name } = request.body;
+    const { customer } = request;
+
+    customer.name = name;
+
+    return response.send();
+});
+
+app.get("/account", verifyIfExistsAccountWithInformedCPF, (request, response) => {
+    const { customer } = request;
+
+    return response.json(customer);
+});
+
 app.get("/statements", verifyIfExistsAccountWithInformedCPF, (request, response) => {
     const { customer } = request;
 

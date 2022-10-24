@@ -25,7 +25,6 @@ function verifyIfExistsAccountWithInformedCPF(request, response, next) {
     return next();
 }
 
-
 app.post("/account", (request, response) => {
     const { name, cpf } = request.body;
 
@@ -53,4 +52,21 @@ app.get("/statements", verifyIfExistsAccountWithInformedCPF, (request, response)
     const { customer } = request;
 
     return response.json(customer.statements);
-})
+});
+
+app.post("/deposit", verifyIfExistsAccountWithInformedCPF, (request, response) => {
+    const { description, amount } = request.body;
+
+    const { customer } = request;
+
+    const statementDepositOperation = {
+        description,
+        amount,
+        type: "credit",
+        created_at: new Date()
+    };
+
+    customer.statements.push(statementDepositOperation);
+
+    return response.status(201).send();
+});

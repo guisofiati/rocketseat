@@ -5,10 +5,26 @@ const app = express();
 
 app.listen(3333);
 
-// middlewares
 app.use(express.json());
 
 const customers = [];
+
+// middlewares
+function verifyIfExistsAccountWithInformedCPF(request, response, next) {
+    const { cpf } = request.headers;
+
+    const customer = customers.find(customer => customer.cpf === cpf);
+
+    if (!customer) {
+        return response.status(404).json({ error: "Customer not found." });
+    }
+    
+    // para conseguir chamar o objeto na função que chama o middleware
+    request.customer = customer; 
+    
+    return next();
+}
+
 
 app.post("/account", (request, response) => {
     const { name, cpf } = request.body;
@@ -16,7 +32,7 @@ app.post("/account", (request, response) => {
     const isCustomerAlreadyExists = customers.some(customer => customer.cpf === cpf);
     
     if (isCustomerAlreadyExists) {
-        return response.status(400).json({ "error": "Customer already exists!" });
+        return response.status(400).json({ "error": "Customer already exists." });
     }
 
     customers.push({
@@ -29,14 +45,12 @@ app.post("/account", (request, response) => {
     return response.status(201).send();
 });
 
-app.get("/statements", (request, response) => {
-    const { cpf } = request.headers;
+// app.use(verifyIfExistsAccountWithInformedCPF);
+// com o app.use(verifyIfExistsAccountWithInformedCPF) todas os endpoints abaixo dele
+// usarao esse middlware, nao sendo necessario passar como parametro nas funcoes como passado abaixo
 
-    const customer = customers.find(customer => customer.cpf === cpf);
-
-    if (!customer) {
-        return response.status(404).json({ error: "Customer not found." });
-    }
+app.get("/statements", verifyIfExistsAccountWithInformedCPF, (request, response) => {
+    const { customer } = request;
 
     return response.json(customer.statements);
 })

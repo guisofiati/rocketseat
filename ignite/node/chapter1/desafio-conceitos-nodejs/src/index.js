@@ -64,7 +64,7 @@ app.post('/todos', checksExistsUserAccount, (request, response) => {
 
   user.todos.push(todoObj);
 
-  response.status(201).json(todoObj);
+  return response.status(201).json(todoObj);
 });
 
 app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
@@ -81,7 +81,7 @@ app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
   todo.title = title;
   todo.deadline = new Date(deadline);
 
-  return response.json();
+  return response.json(todo);
 });
 
 app.patch('/todos/:id/done', checksExistsUserAccount, (request, response) => {
@@ -96,7 +96,7 @@ app.patch('/todos/:id/done', checksExistsUserAccount, (request, response) => {
 
   todo.done = true;
 
-  return response.json();
+  return response.json(todo);
 });
 
 app.delete('/todos/:id', checksExistsUserAccount, (request, response) => {

@@ -32,14 +32,16 @@ app.post('/users', (request, response) => {
     response.status(400).json({ error: "Account already exists." });
   }
 
-  users.push({
+  const userObj = {
     id: uuidv4(),
     name,
     username,
     todos: []
-  });
+  } 
 
-  return response.status(201).send(); // retornar o user aqui
+  users.push(userObj);
+
+  return response.status(201).json(userObj);
 });
 
 app.get('/todos', checksExistsUserAccount, (request, response) => {
@@ -52,15 +54,17 @@ app.post('/todos', checksExistsUserAccount, (request, response) => {
   const { user } = request;
   const { title, deadline } = request.body;
 
-  user.todos.push({
+  const todoObj = {
     id: uuidv4(),
     title,
     done: false,
     deadline: new Date(deadline),
     created_at: new Date()
-  });
+  }
 
-  response.status(201).send(); // retornar a todo aqui
+  user.todos.push(todoObj);
+
+  response.status(201).json(todoObj);
 });
 
 app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
@@ -77,7 +81,7 @@ app.put('/todos/:id', checksExistsUserAccount, (request, response) => {
   todo.title = title;
   todo.deadline = new Date(deadline);
 
-  return response.send();
+  return response.json();
 });
 
 app.patch('/todos/:id/done', checksExistsUserAccount, (request, response) => {
@@ -92,7 +96,7 @@ app.patch('/todos/:id/done', checksExistsUserAccount, (request, response) => {
 
   todo.done = true;
 
-  return response.send();
+  return response.json();
 });
 
 app.delete('/todos/:id', checksExistsUserAccount, (request, response) => {
@@ -107,7 +111,7 @@ app.delete('/todos/:id', checksExistsUserAccount, (request, response) => {
 
   user.todos.splice(todo, 1);
 
-  return response.status(204).send();
+  return response.status(204).json();
 });
 
 module.exports = app;

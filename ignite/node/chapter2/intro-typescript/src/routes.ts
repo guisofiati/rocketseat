@@ -6,7 +6,12 @@ export function createCar(request: Request, response: Response) {
   CreateCarService.execute({
     year: 2007,
     company: "Toyota",
-    country: "Japan",
+  }); // "2007" -> erro
+
+  CreateCarService.execute({
+    year: 2007,
+    company: "Audi",
+    country: "Germany",
   }); // "2007" -> erro
 
   return response.send();

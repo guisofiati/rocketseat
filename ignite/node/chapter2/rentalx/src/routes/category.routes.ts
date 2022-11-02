@@ -2,11 +2,11 @@ import { Router } from "express";
 
 import { CategoryRepository } from "../repositories/CategoryRepository";
 
-const categoriesRoutes = Router();
+const categoryRoutes = Router();
 
 const repository = new CategoryRepository();
 
-categoriesRoutes.post("/", (request, response) => {
+categoryRoutes.post("/", (request, response) => {
   const { name, description } = request.body;
 
   const isCategoryAlreadyExists = repository.findByName(name);
@@ -20,10 +20,10 @@ categoriesRoutes.post("/", (request, response) => {
   return response.status(201).send();
 });
 
-categoriesRoutes.get("/", (request, response) => {
+categoryRoutes.get("/", (request, response) => {
   const findAll = repository.list();
 
   return response.json(findAll);
 });
 
-export { categoriesRoutes };
+export { categoryRoutes };

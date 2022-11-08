@@ -1,4 +1,4 @@
-import { Department } from "../../models/Department/Department";
+import { Department } from "../../models/Department";
 import {
   IDepartmentRepository,
   INewDepartmentDTO,

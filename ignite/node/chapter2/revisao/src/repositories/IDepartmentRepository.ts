@@ -1,4 +1,4 @@
-import { Department } from "../models/Department/Department";
+import { Department } from "../models/Department";
 
 interface INewDepartmentDTO {
   name: string;

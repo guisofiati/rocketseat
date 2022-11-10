@@ -1,11 +1,11 @@
 import { v4 as uuid } from "uuid";
 
-import { Employee } from "./Employee";
-
-class Department {
+class Employee {
   id?: string;
   name: string;
-  employees: Employee[];
+  lastName: string;
+  age: number;
+  gender: string;
 
   constructor() {
     if (!this.id) {
@@ -14,4 +14,4 @@ class Department {
   }
 }
 
-export { Department };
+export { Employee };

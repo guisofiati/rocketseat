@@ -6,7 +6,6 @@ interface IRequestData {
 }
 
 class CreateCategoryUseCase {
-  // eslint-disable-next-line prettier/prettier
   constructor(private repository: ICategoryRepository) { }
 
   execute({ name, description }: IRequestData): void {

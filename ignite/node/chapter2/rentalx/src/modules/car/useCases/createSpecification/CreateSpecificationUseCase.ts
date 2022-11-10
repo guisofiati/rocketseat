@@ -6,7 +6,6 @@ interface IRequestData {
 }
 
 class CreateSpecificationUseCase {
-  // eslint-disable-next-line prettier/prettier
   constructor(private repository: ISpecificationRepository) { }
 
   execute({ name, description }: IRequestData): void {

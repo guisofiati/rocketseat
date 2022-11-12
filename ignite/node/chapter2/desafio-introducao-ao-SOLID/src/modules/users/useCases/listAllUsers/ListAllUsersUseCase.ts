@@ -18,7 +18,7 @@ class ListAllUsersUseCase {
 
     if (!user.admin) {
       throw new Error(
-        "You can access this resource because you're not an admin"
+        "You can't access this resource because you're not an admin"
       );
     }
 

@@ -1,6 +1,19 @@
 version: "3.8"
 
 services:
+  database:
+    image: postgres
+    container_name: db_rentalx_container
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=ignite
+      - POSTGRES_DB=rentalx
+    volumes:
+      - pgdata:/data/postgres
+
   app:
     build: .
     container_name: rentalx_container
@@ -8,3 +21,11 @@ services:
       - 3333:3333
     volumes:
       - .:/usr/app
+    links:
+      - database
+    depends_on:
+      - database
+
+volumes:
+  pgdata:
+    driver: local

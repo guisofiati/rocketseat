@@ -6,11 +6,11 @@ interface IRequestData {
 }
 
 class CreateCategoryUseCase {
-  constructor(private repository: ICategoryRepository) { }
+  constructor(private repository: ICategoryRepository) {}
 
-  execute({ name, description }: IRequestData): void {
+  async execute({ name, description }: IRequestData): Promise<void> {
     // const repository = new CategoryRepository(); -> Tirar a responsabilidade do service e deixar para quem chama o service
-    const isCategoryAlreadyExists = this.repository.findByName(name);
+    const isCategoryAlreadyExists = await this.repository.findByName(name);
 
     if (isCategoryAlreadyExists) {
       throw new Error("Category already exists");

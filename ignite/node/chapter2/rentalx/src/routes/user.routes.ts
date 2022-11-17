@@ -1,7 +1,6 @@
 import { Router } from "express";
 
-// eslint-disable-next-line import/no-unresolved
-import { CreateUserController } from "../modules/account/useCases/createUser/createUserController";
+import { CreateUserController } from "../modules/account/useCases/createUser/CreateUserController";
 
 const userRoutes = Router();
 

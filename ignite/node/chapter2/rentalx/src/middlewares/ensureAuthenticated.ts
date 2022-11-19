@@ -29,11 +29,16 @@ export async function ensureAuthenticated(
     ) as IPayload;
 
     const userRepository = new UserRepository();
+
     const user = await userRepository.findById(user_id);
 
     if (!user) {
       throw new AppError("User not found", 401);
     }
+
+    request.user = {
+      id: user_id,
+    };
 
     next();
   } catch {

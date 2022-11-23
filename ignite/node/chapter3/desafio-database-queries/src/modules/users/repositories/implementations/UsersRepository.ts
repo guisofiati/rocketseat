@@ -12,9 +12,12 @@ export class UsersRepository implements IUsersRepository {
   }
 
   async findUserWithGamesById({
-    user_id: id
+    user_id
   }: IFindUserWithGamesDTO): Promise<User> {
-    const user = await this.repository.findOne(id);
+    const user = await this.repository.createQueryBuilder("user")
+    .leftJoinAndSelect("user.games", "game")
+    .where("user.id = :id", { id: user_id})
+    .getOne();
     return user;
   }
 

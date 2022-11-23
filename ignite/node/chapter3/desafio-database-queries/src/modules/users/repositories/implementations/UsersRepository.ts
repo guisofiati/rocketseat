@@ -14,11 +14,9 @@ export class UsersRepository implements IUsersRepository {
   async findUserWithGamesById({
     user_id
   }: IFindUserWithGamesDTO): Promise<User> {
-    const user = await this.repository.createQueryBuilder("user")
-    .leftJoinAndSelect("user.games", "game")
-    .where("user.id = :id", { id: user_id})
-    .getOne();
-    return user;
+    return await this.repository.findOneOrFail(user_id, {
+      relations: ["games"],
+    })
   }
 
   async findAllUsersOrderedByFirstName(): Promise<User[]> {

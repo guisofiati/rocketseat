@@ -1,8 +1,9 @@
 import { getRepository, Repository } from "typeorm";
 
-import { User } from "../../entities/User";
-import { ICreateUserDTO } from "../dtos/ICreateUserDTO";
-import { IUsersRepository } from "../IUserRepository";
+import { ICreateUserDTO } from "@modules/account/repositories/dtos/ICreateUserDTO";
+import { IUsersRepository } from "@modules/account/repositories/IUserRepository";
+
+import { User } from "../entities/User";
 
 class UserRepository implements IUsersRepository {
   private repository: Repository<User>;
@@ -43,3 +44,4 @@ class UserRepository implements IUsersRepository {
 }
 
 export { UserRepository };
+// eslint-disable-next-line prettier/prettier

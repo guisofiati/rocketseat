@@ -1,9 +1,9 @@
 import { Router } from "express";
 import multer from "multer";
 
-import { CreateCategoryController } from "../modules/car/useCases/createCategory/CreateCategoryController";
-import { ImportCategoryController } from "../modules/car/useCases/importCategory/importCategoryController";
-import { ListCategoriesController } from "../modules/car/useCases/listCategories/ListCategoriesController";
+import { CreateCategoryController } from "@modules/car/useCases/createCategory/CreateCategoryController";
+import { ImportCategoryController } from "@modules/car/useCases/importCategory/importCategoryController";
+import { ListCategoriesController } from "@modules/car/useCases/listCategories/ListCategoriesController";
 
 const categoryRoutes = Router();
 
@@ -26,3 +26,4 @@ categoryRoutes.post(
 );
 
 export { categoryRoutes };
+// eslint-disable-next-line prettier/prettier

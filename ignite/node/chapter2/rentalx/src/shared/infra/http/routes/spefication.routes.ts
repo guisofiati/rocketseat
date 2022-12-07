@@ -1,7 +1,8 @@
 import { Router } from "express";
 
+import { CreateSpecificationController } from "@modules/car/useCases/createSpecification/CreateSpecificationController";
+
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
-import { CreateSpecificationController } from "../modules/car/useCases/createSpecification/CreateSpecificationController";
 
 const specificationRoutes = Router();
 
@@ -11,3 +12,5 @@ specificationRoutes.use(ensureAuthenticated);
 specificationRoutes.post("/", createSpecificationController.handle);
 
 export { specificationRoutes };
+// eslint-disable-next-line prettier/prettier
+

@@ -1,4 +1,4 @@
-import { User } from "../entities/User";
+import { User } from "../infra/typeorm/entities/User";
 import { ICreateUserDTO } from "./dtos/ICreateUserDTO";
 
 interface IUsersRepository {
@@ -8,3 +8,4 @@ interface IUsersRepository {
 }
 
 export { IUsersRepository };
+// eslint-disable-next-line prettier/prettier

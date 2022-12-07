@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { inject, injectable } from "tsyringe";
 
-import { AppError } from "@errors/AppError";
 import { ISpecificationRepository } from "@modules/car/repositories/ISpecificationRepository";
+import { AppError } from "@shared/errors/AppError";
 
 interface IRequestData {
   name: string;

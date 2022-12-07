@@ -1,13 +1,14 @@
 import { hash } from "bcryptjs";
 import { inject, injectable } from "tsyringe";
 
-import { AppError } from "../../../../errors/AppError";
-import { ICreateUserDTO } from "../../repositories/dtos/ICreateUserDTO";
-import { IUsersRepository } from "../../repositories/IUserRepository";
+import { AppError } from "@errors/AppError";
+import { ICreateUserDTO } from "@modules/account/repositories/dtos/ICreateUserDTO";
+import { IUsersRepository } from "@modules/account/repositories/IUserRepository";
 
 @injectable()
 class CreateUserUseCase {
-  constructor(@inject("UserRepository") private repository: IUsersRepository) {}
+  // eslint-disable-next-line prettier/prettier
+  constructor(@inject("UserRepository") private repository: IUsersRepository) { }
 
   async execute({
     name,
@@ -33,3 +34,4 @@ class CreateUserUseCase {
 }
 
 export { CreateUserUseCase };
+// eslint-disable-next-line prettier/prettier

@@ -1,8 +1,9 @@
+/* eslint-disable prettier/prettier */
 import { parse } from "csv-parse";
 import fs from "fs";
 import { inject, injectable } from "tsyringe";
 
-import { ICategoryRepository } from "../../repositories/ICategoryRepository";
+import { ICategoryRepository } from "@modules/car/repositories/ICategoryRepository";
 
 interface IImportCategory {
   name: string;
@@ -14,7 +15,7 @@ class ImportCategoryUseCase {
   constructor(
     @inject("CategoryRepository")
     private categoryRepository: ICategoryRepository,
-  ) {}
+  ) { }
 
   loadCategories(file: Express.Multer.File): Promise<IImportCategory[]> {
     return new Promise((resolve, reject) => {
@@ -67,3 +68,4 @@ class ImportCategoryUseCase {
 }
 
 export { ImportCategoryUseCase };
+

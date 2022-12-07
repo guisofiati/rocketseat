@@ -1,7 +1,7 @@
 import { inject, injectable } from "tsyringe";
 
-import { deleteFile } from "../../../../utils/file";
-import { IUsersRepository } from "../../repositories/IUserRepository";
+import { IUsersRepository } from "@modules/account/repositories/IUserRepository";
+import { deleteFile } from "@utils/file";
 
 interface IRequest {
   user_id: string;
@@ -10,7 +10,8 @@ interface IRequest {
 
 @injectable()
 class UpdateUserAvatarUseCase {
-  constructor(@inject("UserRepository") private repository: IUsersRepository) {}
+  // eslint-disable-next-line prettier/prettier
+  constructor(@inject("UserRepository") private repository: IUsersRepository) { }
   async execute({ user_id, avatar_file }: IRequest): Promise<void> {
     const user = await this.repository.findById(user_id);
 
@@ -25,3 +26,5 @@ class UpdateUserAvatarUseCase {
 }
 
 export { UpdateUserAvatarUseCase };
+// eslint-disable-next-line prettier/prettier
+

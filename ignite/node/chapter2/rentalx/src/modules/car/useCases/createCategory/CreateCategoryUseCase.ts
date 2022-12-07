@@ -1,7 +1,8 @@
+/* eslint-disable prettier/prettier */
 import { inject, injectable } from "tsyringe";
 
-import { AppError } from "../../../../errors/AppError";
-import { ICategoryRepository } from "../../repositories/ICategoryRepository";
+import { AppError } from "@errors/AppError";
+import { ICategoryRepository } from "@modules/car/repositories/ICategoryRepository";
 
 interface IRequestData {
   name: string;
@@ -13,7 +14,7 @@ class CreateCategoryUseCase {
   constructor(
     @inject("CategoryRepository")
     private repository: ICategoryRepository,
-  ) {}
+  ) { }
 
   async execute({ name, description }: IRequestData): Promise<void> {
     // const repository = new CategoryRepository(); -> Tirar a responsabilidade do service e deixar para quem chama o service
@@ -28,3 +29,4 @@ class CreateCategoryUseCase {
 }
 
 export { CreateCategoryUseCase };
+

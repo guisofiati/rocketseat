@@ -1,4 +1,5 @@
-import { Category } from "../../infra/typeorm/entities/Category";
+import { Category } from "@modules/car/infra/typeorm/entities/Category";
+
 import {
   ICategoryRepository,
   // eslint-disable-next-line prettier/prettier

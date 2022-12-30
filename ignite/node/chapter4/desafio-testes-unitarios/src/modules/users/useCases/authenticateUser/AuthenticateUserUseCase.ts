@@ -1,10 +1,10 @@
-import { inject, injectable } from "tsyringe";
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
+import { inject, injectable } from "tsyringe";
 
-import authConfig from '../../../../config/auth';
+import authConfig from '@config/auth';
 
-import { IUsersRepository } from "../../repositories/IUsersRepository";
+import { IUsersRepository } from '@modules/users/repositories/IUsersRepository';
 import { IAuthenticateUserResponseDTO } from "./IAuthenticateUserResponseDTO";
 import { IncorrectEmailOrPasswordError } from "./IncorrectEmailOrPasswordError";
 

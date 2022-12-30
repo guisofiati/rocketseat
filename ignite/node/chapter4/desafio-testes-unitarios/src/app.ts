@@ -1,13 +1,12 @@
-import 'reflect-metadata';
 import 'express-async-errors';
+import 'reflect-metadata';
 
-import express from 'express';
 import cors from 'cors';
+import express from 'express';
 
+import { AppError } from '@shared/errors/AppError';
+import { router } from 'routes';
 import './database';
-import './shared/container';
-import { router } from './routes';
-import { AppError } from './shared/errors/AppError';
 
 const app = express();
 
@@ -32,3 +31,4 @@ app.use(
 );
 
 export { app };
+

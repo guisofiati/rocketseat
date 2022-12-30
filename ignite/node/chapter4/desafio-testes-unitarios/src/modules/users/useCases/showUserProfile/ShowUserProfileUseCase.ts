@@ -1,6 +1,6 @@
-import { injectable, inject } from "tsyringe";
+import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
+import { inject, injectable } from "tsyringe";
 
-import { IUsersRepository } from "../../repositories/IUsersRepository";
 import { ShowUserProfileError } from "./ShowUserProfileError";
 
 @injectable()

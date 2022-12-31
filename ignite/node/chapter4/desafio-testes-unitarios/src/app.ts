@@ -5,8 +5,9 @@ import cors from 'cors';
 import express from 'express';
 
 import { AppError } from '@shared/errors/AppError';
-import { router } from 'routes';
 import './database';
+import { router } from './routes';
+import './shared/container';
 
 const app = express();
 
@@ -31,4 +32,3 @@ app.use(
 );
 
 export { app };
-

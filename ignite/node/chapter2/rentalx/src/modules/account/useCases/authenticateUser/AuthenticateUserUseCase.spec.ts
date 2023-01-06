@@ -38,29 +38,29 @@ describe("Authenticate user", () => {
   });
 
   it("should not be able to authenticate a nonexisting user", async () => {
-    expect(async () => {
-      await authenticateUserUseCase.execute({
+    await expect(
+      authenticateUserUseCase.execute({
         email: "fulano@gmail.com",
         password: "123",
-      });
-    }).rejects.toBeInstanceOf(AppError);
+      }),
+    ).rejects.toEqual(new AppError("Email or password incorrect"));
   });
 
   it("should not be able to authenticate user with incorrect password", async () => {
-    expect(async () => {
-      const user: ICreateUserDTO = {
-        name: "User test",
-        email: "ciclano@gmail.com",
-        password: "1234",
-        driver_license: "000123",
-      };
+    const user: ICreateUserDTO = {
+      name: "User test",
+      email: "ciclano@gmail.com",
+      password: "1234",
+      driver_license: "000123",
+    };
 
-      await createUserUseCase.execute(user);
+    await createUserUseCase.execute(user);
 
-      await authenticateUserUseCase.execute({
+    await expect(
+      authenticateUserUseCase.execute({
         email: user.email,
         password: "4321",
-      });
-    }).rejects.toBeInstanceOf(AppError);
+      }),
+    ).rejects.toEqual(new AppError("Email or password incorrect"));
   });
 });

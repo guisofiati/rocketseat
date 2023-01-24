@@ -14,28 +14,65 @@ export class CreateStatementUseCase {
     private statementsRepository: IStatementsRepository
   ) {}
 
-  async execute({ user_id, type, amount, description }: ICreateStatementDTO) {
-    const user = await this.usersRepository.findById(user_id);
+  async #verifyIfUserExists(id: string) {
+    const user = await this.usersRepository.findById(id);
 
-    if(!user) {
+    if (!user) {
       throw new CreateStatementError.UserNotFound();
     }
+  }
 
-    if(type === 'withdraw') {
-      const { balance } = await this.statementsRepository.getUserBalance({ user_id });
+  async #verifyIfBalanceIsEnough(user_id: string, amount: number) {
 
-      if (balance < amount) {
-        throw new CreateStatementError.InsufficientFunds()
-      }
+    const { balance } = await this.statementsRepository.getUserBalance({ user_id });
+
+    if (balance < amount) {
+      throw new CreateStatementError.InsufficientFunds()
+    }
+  }
+
+  async execute({ user_id, sender_id, recipient_id, type, amount, description }: ICreateStatementDTO) {
+    this.#verifyIfUserExists(user_id);
+
+    if(type === 'withdraw' || type === 'transfer') {
+      this.#verifyIfBalanceIsEnough(user_id, amount);
     }
 
-    const statementOperation = await this.statementsRepository.create({
-      user_id,
-      type,
-      amount,
-      description
-    });
+    if (type === 'withdraw') {
 
-    return statementOperation;
+      const statementOperation = await this.statementsRepository.create({
+        user_id,
+        type,
+        amount,
+        description
+      });
+
+      return statementOperation;
+    }
+
+    if (type === 'transfer') {
+      this.#verifyIfUserExists(recipient_id!);
+
+      const statementOperation = await this.statementsRepository.create({
+        user_id,
+        sender_id,
+        recipient_id,
+        type,
+        amount: amount * -1, // e.g: (30 * -1 = -30);
+        description
+      });
+
+      await this.statementsRepository.create({
+        user_id: recipient_id!,
+        sender_id,
+        recipient_id,
+        type,
+        amount,
+        description
+      });
+
+      return statementOperation;
+    }
+
   }
 }

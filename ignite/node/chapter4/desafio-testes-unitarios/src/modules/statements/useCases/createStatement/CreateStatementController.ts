@@ -5,6 +5,7 @@ import { CreateStatementUseCase } from './CreateStatementUseCase';
 enum OperationType {
   DEPOSIT = 'deposit',
   WITHDRAW = 'withdraw',
+  TRANSFER = 'transfer',
 }
 
 export class CreateStatementController {
@@ -17,12 +18,20 @@ export class CreateStatementController {
 
     const createStatement = container.resolve(CreateStatementUseCase);
 
-    const statement = await createStatement.execute({
+    const statementData = {
       user_id,
       type,
       amount,
       description
-    });
+    };
+
+    if (type === 'transfer') {
+      const { user_id: recipient_id } = request.params;
+      Object.assign(statementData, { recipient_id});
+      Object.assign(statementData, { sender_id: user_id });
+    }
+
+    const statement = await createStatement.execute(statementData);
 
     return response.status(201).json(statement);
   }

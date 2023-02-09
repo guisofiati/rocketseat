@@ -1,32 +1,19 @@
 import http from 'node:http';
+import { json } from './middlewares/json.js';
 
 const users = [];
 
 const server = http.createServer(async (req, res) => {
   const { method, url } = req;
 
-  console.log(method, url);
+  // console.log(method, url);
 
-  const buffers = [];
-
-  for await (const chunk of req) {
-    buffers.push(chunk);
-  }
-
-  try {
-    req.body = JSON.parse(Buffer.concat(buffers).toString());
-  }
-  catch {
-    req.body = null;
-  }
-
-  console.log(req.body);
+  await json(req, res);
 
   // early return
   if (method === 'GET' && url === '/users') {
     // deixando sem header, ele fica em formato de string
     return res
-    .setHeader('Content-Type', 'application/json')
     .end(JSON.stringify(users));
     // return res.end('listagem');
   }

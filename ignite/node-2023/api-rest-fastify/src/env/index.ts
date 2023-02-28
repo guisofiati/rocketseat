@@ -1,5 +1,12 @@
-import "dotenv/config";
+import { config } from "dotenv";
 import { z } from "zod";
+
+// quando utilizamos Jest ou Vitest, eles preenchem a variavel NODE_ENV com test
+if (process.env.NODE_ENV === "test") {
+  config({ path: ".env.test" }); // muda para o env.test
+} else {
+  config(); // se nao, .env
+}
 
 const envSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("production"),

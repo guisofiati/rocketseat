@@ -8,11 +8,10 @@ namespace RocketseatAuction.API.Controllers;
 public class AuctionController : RocketseatAuctionBaseController
 {
     [HttpGet]
-    [ProducesResponseType(typeof(Auction), StatusCodes.Status200OK)] // swagger docs
+    [ProducesResponseType(typeof(Auction), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    public IActionResult GetCurrentAuction()
+    public IActionResult GetCurrentAuction([FromServices] GetCurrentAuctionUseCase useCase)
     {
-        var useCase = new GetCurrentAuctionUseCase();
         var result = useCase.Execute();
         if (result is null)
         {

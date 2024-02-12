@@ -1,5 +1,5 @@
 from typing import Dict
-from src.main.drivers.barcode_handler import BarcodeHandler
+from src.drivers.barcode_handler import BarcodeHandler
 
 class TagCreatorController:
   def create(self, product_code: str) -> Dict:

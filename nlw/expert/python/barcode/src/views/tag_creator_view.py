@@ -1,6 +1,6 @@
-from src.main.views.http_types.http_request import HttpRequest
-from src.main.views.http_types.http_response import HttpResponse
-from src.main.controllers.tag_creator_controller import TagCreatorController
+from src.views.http_types.http_request import HttpRequest
+from src.views.http_types.http_response import HttpResponse
+from src.controllers.tag_creator_controller import TagCreatorController
 
 class TagCreatorView:
   def validate_and_create(self, http_request: HttpRequest) -> HttpResponse:

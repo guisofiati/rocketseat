@@ -2,19 +2,28 @@ import { Post } from "./Post"
 import { Header } from "./components/Header"
 
 import "./global.css"
+import styles from "./App.module.css"
+import { Sidebar } from "./components/Sidebar"
+
 
 export function App() {
   return (
     <>
       <Header />
-      <Post
-        author="Guilherme Sofiati"
-        content="Lorem ipsum dolor sit amet"
-      />
-      <Post
-        author="Giovanni Sofiati"
-        content="Lorem ipsum dolor sit amet"
-      />
+
+      <div className={styles.wrapper}>
+        <Sidebar />
+        <main>
+          <Post
+            author="Guilherme Sofiati"
+            content="Lorem ipsum dolor sit amet"
+          />
+          <Post
+            author="Giovanni Sofiati"
+            content="Lorem ipsum dolor sit amet"
+          />
+        </main>
+      </div>
     </>
   )
 }

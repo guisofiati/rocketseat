@@ -51,7 +51,6 @@ export function App() {
         <Sidebar />
         <main>
           {posts.map(post => {
-            console.log(post);
             return (
               <Post
                 author={post.author}

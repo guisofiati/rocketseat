@@ -11,7 +11,12 @@ const FILTER_STATUS: FilterStatus[] = [
   FilterStatus.DONE,
 ]
 
-const ITEMS = Array.from({ length: 100 }).map((_, index) => String(index))
+const ITEMS = [
+  { id: "1", status: FilterStatus.DONE, description: "2 pacote de café" },
+  { id: "2", status: FilterStatus.DONE, description: "1 escova de dente" },
+  { id: "3", status: FilterStatus.PENDING, description: "3 sabonetes" },
+  { id: "4", status: FilterStatus.PENDING, description: "1 sabão em pó" },
+]
 
 export function Home() {
   return (
@@ -30,7 +35,6 @@ export function Home() {
             <Text style={styles.clearText}>Limpar</Text>
           </TouchableOpacity>
         </View>
-
         {/* <ScrollView>
           {ITEMS.map((value) => (
             <Item
@@ -43,16 +47,20 @@ export function Home() {
         </ScrollView> */}
         <FlatList
           data={ITEMS}
-          keyExtractor={item => item}
+          keyExtractor={item => item.id}
+          showsVerticalScrollIndicator={false}
           renderItem={({ item }) => (
             <Item
-              data={{ status: FilterStatus.DONE, description: item }}
+              // data={{ status: item.status, description: item.description }}
+              data={item}
               onStatusChange={() => console.log('changed')}
               onRemove={() => console.log('removed')}
             />
           )}
+          ItemSeparatorComponent={() => <View style={styles.separator} />}
+          contentContainerStyle={styles.listContent}
+          ListEmptyComponent={() => <Text style={styles.emptyList}>Nenhum item aqui.</Text>}
         />
-
       </View>
     </View>
   )

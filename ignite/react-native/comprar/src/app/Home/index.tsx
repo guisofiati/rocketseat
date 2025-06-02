@@ -1,4 +1,4 @@
-import { View, Image, TouchableOpacity, Text, FlatList } from "react-native";
+import { View, Image, TouchableOpacity, Text, FlatList, Alert } from "react-native";
 import { styles } from "./styles";
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
@@ -12,22 +12,32 @@ const FILTER_STATUS: FilterStatus[] = [
   FilterStatus.DONE,
 ]
 
-const ITEMS = [
-  { id: "1", status: FilterStatus.DONE, description: "2 pacote de café" },
-  { id: "2", status: FilterStatus.DONE, description: "1 escova de dente" },
-  { id: "3", status: FilterStatus.PENDING, description: "3 sabonetes" },
-  { id: "4", status: FilterStatus.PENDING, description: "1 sabão em pó" },
-]
-
 export function Home() {
+  const [items, setItems] = useState<any>([])
   const [filter, setFilter] = useState<FilterStatus>(FilterStatus.PENDING)
   const [description, setDescription] = useState("")
+
+  function handleAddItem() {
+    if (!description.trim()) {
+      return Alert.alert("Adicionar", "Informe a descrição para adicionar.")
+    }
+
+    const newItem = {
+      id: Math.random().toString(36).substring(2),
+      description,
+      status: FilterStatus.PENDING
+    }
+
+    setItems((prevState) => [...prevState, newItem])
+    setDescription("")
+  }
+
   return (
     <View style={styles.container}>
       <Image source={require("@/assets/logo.png")} style={styles.logo} />
       <View style={styles.form}>
-        <Input placeholder="O que você precisa comprar?" onChangeText={setDescription} />
-        <Button title="Adicionar" />
+        <Input placeholder="O que você precisa comprar?" onChangeText={setDescription} value={description} />
+        <Button title="Adicionar" onPress={handleAddItem} />
       </View>
       <View style={styles.content}>
         <View style={styles.header}>
@@ -45,7 +55,7 @@ export function Home() {
           </TouchableOpacity>
         </View>
         <FlatList
-          data={ITEMS}
+          data={items}
           keyExtractor={item => item.id}
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => (

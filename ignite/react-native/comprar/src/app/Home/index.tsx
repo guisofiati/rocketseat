@@ -57,6 +57,23 @@ export function Home() {
     }
   }
 
+  function handleClear() {
+    Alert.alert("Limpar", "Você realmente deseja remover todos os itens?", [
+      { text: "Não", style: "cancel" },
+      { text: "Sim", onPress: () => onClear() },
+    ])
+  }
+
+  async function onClear() {
+    try {
+      await itemStorage.clear()
+      setItems([])
+    } catch (error) {
+      console.log(error)
+      Alert.alert("Erro", "Não foi possível remover todos os itens")
+    }
+  }
+
   useEffect(() => {
     // se fosse usar a função do itemStorage.get() aqui, teria que usar o .then depois, pois
     // useEffect n tem como ser async 
@@ -81,7 +98,7 @@ export function Home() {
                 onPress={() => setFilter(status)}
               />)
           })}
-          <TouchableOpacity style={styles.clearButton} activeOpacity={0.3}>
+          <TouchableOpacity style={styles.clearButton} activeOpacity={0.3} onPress={handleClear}>
             <Text style={styles.clearText}>Limpar</Text>
           </TouchableOpacity>
         </View>

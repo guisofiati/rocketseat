@@ -29,15 +29,17 @@ export function Home() {
       status: FilterStatus.PENDING
     }
 
-    // setItems((prevState) => [...prevState, newItem])
     await itemStorage.add(newItem)
-    await getItems()
-    // setDescription("")
+    await itemsByStatus()
+
+    Alert.alert("Adicionado", `Item ${description} adicionado.`)
+    setFilter(FilterStatus.PENDING)
+    setDescription("")
   }
 
-  async function getItems() {
+  async function itemsByStatus() {
     try {
-      const response = await itemStorage.get()
+      const response = await itemStorage.getByStatus(filter)
       setItems(response)
     } catch (error) {
       console.log(error)
@@ -45,11 +47,21 @@ export function Home() {
     }
   }
 
+  async function handleRemove(id: string) {
+    try {
+      await itemStorage.remove(id)
+      await itemsByStatus()
+    } catch (error) {
+      console.log(error)
+      Alert.alert("Erro", "Não foi possível remover o item.")
+    }
+  }
+
   useEffect(() => {
     // se fosse usar a função do itemStorage.get() aqui, teria que usar o .then depois, pois
     // useEffect n tem como ser async 
-    getItems()
-  }, [])
+    itemsByStatus()
+  }, [filter])
 
   return (
     <View style={styles.container}>
@@ -81,7 +93,7 @@ export function Home() {
             <Item
               data={item}
               onStatusChange={() => console.log('changed')}
-              onRemove={() => console.log('removed')}
+              onRemove={() => handleRemove(item.id)}
             />
           )}
           ItemSeparatorComponent={() => <View style={styles.separator} />}

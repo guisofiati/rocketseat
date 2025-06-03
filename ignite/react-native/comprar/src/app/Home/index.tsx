@@ -5,7 +5,8 @@ import { Input } from "@/components/Input";
 import { Filter } from "@/components/Filter";
 import { FilterStatus } from "@/types/FilterStatus";
 import { Item } from "@/components/Item";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { itemStorage, ItemStorage, } from "@/storage/itemsStorage";
 
 const FILTER_STATUS: FilterStatus[] = [
   FilterStatus.PENDING,
@@ -13,11 +14,11 @@ const FILTER_STATUS: FilterStatus[] = [
 ]
 
 export function Home() {
-  const [items, setItems] = useState<any>([])
+  const [items, setItems] = useState<ItemStorage[]>([])
   const [filter, setFilter] = useState<FilterStatus>(FilterStatus.PENDING)
   const [description, setDescription] = useState("")
 
-  function handleAddItem() {
+  async function handleAddItem() {
     if (!description.trim()) {
       return Alert.alert("Adicionar", "Informe a descrição para adicionar.")
     }
@@ -28,9 +29,27 @@ export function Home() {
       status: FilterStatus.PENDING
     }
 
-    setItems((prevState) => [...prevState, newItem])
-    setDescription("")
+    // setItems((prevState) => [...prevState, newItem])
+    await itemStorage.add(newItem)
+    await getItems()
+    // setDescription("")
   }
+
+  async function getItems() {
+    try {
+      const response = await itemStorage.get()
+      setItems(response)
+    } catch (error) {
+      console.log(error)
+      Alert.alert("Erro", "Não foi possível filtrar os itens.")
+    }
+  }
+
+  useEffect(() => {
+    // se fosse usar a função do itemStorage.get() aqui, teria que usar o .then depois, pois
+    // useEffect n tem como ser async 
+    getItems()
+  }, [])
 
   return (
     <View style={styles.container}>

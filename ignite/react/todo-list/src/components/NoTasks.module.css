@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5.625rem;
+}
+
+.container svg {
+  color: var(--gray-400)
+}
+
+.container>div>h4 {
+  color: var(--gray-300);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.container>div>p {
+  color: var(--gray-300);
+  font-size: 1rem;
+}

@@ -11,8 +11,7 @@ export function App() {
       <Button variant="secoundary" />
       <Button variant="success" />
       <Button variant="danger" />
-      <Button />
-      <h3>Test</h3>
+      <h1>Teste</h1>
     </ThemeProvider>
   )
 }

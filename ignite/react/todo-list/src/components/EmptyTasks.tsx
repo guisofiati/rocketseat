@@ -1,8 +1,8 @@
 import { ClipboardTextIcon } from "@phosphor-icons/react";
 
-import styles from "./NoTasks.module.css"
+import styles from "./EmptyTasks.module.css"
 
-export function NoTasks() {
+export function EmptyTasks() {
   return (
     <div className={styles.container}>
       <ClipboardTextIcon size={56} />

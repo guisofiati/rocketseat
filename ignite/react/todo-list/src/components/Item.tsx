@@ -2,19 +2,20 @@ import type { ChangeEvent } from "react";
 import styles from "./Item.module.css"
 
 import { TrashIcon } from "@phosphor-icons/react";
+import type { TaskProps } from "../App";
 
-export type TaskProps = {
-  id: string
-  task: string
-  isDone: boolean
-  onDelete?: () => void
-  onDone?: (checked: boolean) => void
+type Props = {
+  data: TaskProps
+  onDelete: () => void
+  onDone: (checked: boolean) => void
 }
 
-export function Item({ task, onDelete, isDone, onDone }: TaskProps) {
+export function Item({ data, onDelete, onDone }: Props) {
+
   function handleTaskStatusChange(event: ChangeEvent<HTMLInputElement>) {
     onDone?.(event.target.checked)
   }
+
   return (
     <div className={styles.container}>
       <div className={styles.text}>
@@ -22,10 +23,10 @@ export function Item({ task, onDelete, isDone, onDone }: TaskProps) {
           type="checkbox"
           title="Marcar tarefa como finalizada"
           aria-label="Marcar tarefa como finalizada"
-          checked={isDone}
+          checked={data.isDone}
           onChange={handleTaskStatusChange}
         />
-        <h3>{task}</h3>
+        <h3>{data.content}</h3>
       </div>
       <button title="Excluir task" aria-label="Excluir task" onClick={onDelete}>
         <TrashIcon size={14} />

@@ -7,7 +7,11 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     height: 50,
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
+  },
+  content: {
+    flexDirection: "row",
+    gap: 14
   },
   task: {
     color: "#F2F2F2"

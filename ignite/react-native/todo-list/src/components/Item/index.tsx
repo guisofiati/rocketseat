@@ -3,22 +3,24 @@ import { Checkbox } from "expo-checkbox"
 import { Trash2 } from "lucide-react-native";
 
 import { styles } from "./styles"
+import { TaskProps } from "@/app/Home";
 
-export type TaskProps = {
-  id: string
-  task: string,
-  isDone: boolean
-  onDelete?: () => void
-  onCheck?: (check: boolean) => void
+
+type Props = {
+  data: TaskProps
+  onCheck: (check: boolean) => void
+  onDelete: () => void
 }
 
-export function Item({ task, isDone, onDelete, onCheck }: TaskProps) {
+export function Item({ data, onCheck, onDelete }: Props) {
   return (
     <View style={styles.container}>
-      <Checkbox value={isDone} onValueChange={onCheck} />
-      <Text style={isDone ? styles.taskDone : styles.task}>
-        {task}
-      </Text>
+      <View style={styles.content}>
+        <Checkbox value={data.isDone} onValueChange={onCheck} />
+        <Text style={data.isDone ? styles.taskDone : styles.task} selectable>
+          {data.content}
+        </Text>
+      </View>
       <Trash2
         size={16}
         color="#808080"

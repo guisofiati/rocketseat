@@ -1,25 +1,32 @@
 import { useState } from 'react';
 import { Header } from '@/components/Header';
-import { Item, TaskProps } from '@/components/Item';
+import { Item } from '@/components/Item';
 import { NoTasks } from '@/components/NoTasks';
 import { Alert, FlatList, Keyboard, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { CirclePlus } from 'lucide-react-native';
 import { styles } from "./styles"
 
+export type TaskProps = {
+  id: string,
+  content: string,
+  isDone: boolean
+}
+
 export default function Home() {
   const [tasks, setTasks] = useState<TaskProps[]>([])
   const [input, setInput] = useState("")
 
   function handleCreateTask() {
-    if (input.trim().length < 4) {
+    if (input.trim().length < 4 || input.trim().length > 35) {
+      setInput("")
       Keyboard.dismiss()
-      return Alert.alert("Erro", "Sua task deve ter no mínimo 5 caracteres.")
+      return Alert.alert("Erro", "Sua task deve ter no mínimo 4 caracteres e no máximo 35.")
     }
 
     const newTask: TaskProps = {
       id: Math.random().toString(26).substring(2),
-      task: input,
+      content: input,
       isDone: false
     }
 
@@ -82,9 +89,7 @@ export default function Home() {
             return (
               <Item
                 key={item.id}
-                id={item.id}
-                task={item.task}
-                isDone={item.isDone}
+                data={item}
                 onDelete={() => handleDeleteTask(item.id)}
                 onCheck={(check) => handleTaskStatusChange(item.id, check)}
               />

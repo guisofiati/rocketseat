@@ -2,7 +2,12 @@ import { Home } from "@/app/Home";
 import { Product } from "@/app/Product";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-const Stack = createNativeStackNavigator()
+export type StackRoutesList = {
+  home: undefined
+  product: undefined
+}
+
+const Stack = createNativeStackNavigator<StackRoutesList>()
 // por default a ordem de renderizar é a sequencia declarada dentro de stack navigator
 // se quiser explicitar, so passar a prop initialRouteName
 export function StackRoutes() {

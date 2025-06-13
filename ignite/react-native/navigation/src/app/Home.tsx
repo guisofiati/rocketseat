@@ -10,8 +10,9 @@ export function Home({ navigation }: DrawerRoutesProps<"home">) {
   return (
     <View style={{ flex: 1, padding: 32, paddingTop: 54 }}>
       <Header>
-        <Title>Home</Title>
         <ButtonIcon name="add-circle" onPress={() => navigation.navigate("product", { id: "7" })} />
+        <Title>Home</Title>
+        <ButtonIcon name="menu" onPress={() => navigation.toggleDrawer()} />
       </Header>
     </View>
   )

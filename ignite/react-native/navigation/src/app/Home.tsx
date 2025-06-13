@@ -3,9 +3,9 @@ import { View } from "react-native";
 import { Header } from "@/components/Header";
 import { Title } from "@/components/Title";
 import { ButtonIcon } from "@/components/ButtonIcon";
-import { StackRoutesProps } from "@/routes/StackRoute";
+import { TabRoutesProps } from "@/routes/TabRoute";
 
-export function Home({ navigation }: StackRoutesProps<"home">) {
+export function Home({ navigation }: TabRoutesProps<"home">) {
 
   return (
     <View style={{ flex: 1, padding: 32, paddingTop: 54 }}>

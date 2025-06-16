@@ -49,12 +49,18 @@ export function Home() {
   const activeCycle = cycles.find(cycle => cycle.id === activeCycleId)
 
   useEffect(() => {
+    let interval: number;
     if (activeCycle) {
-      setInterval(() => {
+      interval = setInterval(() => {
         // setInterval nao é mt preciso, entao fazer por ex: setAmountSecondsPassed(state => state + 1)
         // não seria muito viável
         setAmountSecondsPassed(differenceInSeconds(new Date(), activeCycle.startDate))
       }, 1000);
+    }
+
+    // essa função de retorno serve pra fazer alguma coisa com o state anterior que esta no array de dependencia 
+    return () => {
+      clearInterval(interval)
     }
   }, [activeCycle])
 
@@ -68,6 +74,7 @@ export function Home() {
 
     setCycles(prevState => [...prevState, newCycle])
     setActiveCycleId(newCycle.id)
+    setAmountSecondsPassed(0)
     reset() // volta os campos para os valores definidos no defaultValues do useForm
   }
 
@@ -77,6 +84,12 @@ export function Home() {
   const secondsAmount = currentSeconds % 60
   const minutes = String(minutesAmount).padStart(2, "0")
   const seconds = String(secondsAmount).padStart(2, "0")
+
+  useEffect(() => {
+    if (activeCycle) {
+      document.title = `${minutes}:${seconds}`
+    }
+  }, [activeCycle, minutes, seconds])
 
   const task = watch("task")
   const isSubmitDisabled = !task

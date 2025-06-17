@@ -58,7 +58,6 @@ export function CyclesContextProvider({ children }: { children: ReactNode }) {
     setCycles(prevState => [...prevState, newCycle])
     setActiveCycleId(newCycle.id)
     setAmountSecondsPassed(0)
-    // reset() // volta os campos para os valores definidos no defaultValues do useForm
   }
 
   function interruptCurrentCycle() {
